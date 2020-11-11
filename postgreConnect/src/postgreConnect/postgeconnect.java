@@ -4,7 +4,7 @@ import java.util.*;
 
 public class postgeconnect {
 
-	public List<String> Connect(int pagenum) {
+	public static List<String> Connect(int pagenum) {
 
 		List<String> films = new ArrayList<String>();
 		
@@ -16,6 +16,7 @@ public class postgeconnect {
 		//jdbc:postgresql://" + hostname + ":" + port + "/" + dbName + "?user=" + userName + "&password=" + password
 		String jdbcURL = "jdbc:postgresql://rds-postgressql-10mintutorial.cw589ckbkibf.us-east-2.rds.amazonaws.com:5432/" +
 						dbName + "?user=" + username + "&password=" + password;
+		
 		try {
 			//establishes the connection to the database
 			Connection connection = DriverManager.getConnection(jdbcURL, username, password);
@@ -40,5 +41,9 @@ public class postgeconnect {
 		}
 		//returns the string list of the film titles based on page number
 		return films;
+	}
+	
+	public static void main(String[]args) {
+		System.out.println(Connect(1));
 	}
 }
