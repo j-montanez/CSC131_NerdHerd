@@ -1,6 +1,3 @@
-module CSC131.NerdHerd {
-    requires javafx.fxml;
-    requires javafx.controls;
-
-    opens openoscars;
+module CSC131.nerdHerd {
+	exports openoscars;
 }
