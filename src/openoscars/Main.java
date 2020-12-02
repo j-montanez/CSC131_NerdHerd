@@ -57,6 +57,7 @@ public class Main extends Application {
         Button account= new Button("Account");
         Button settings= new Button("Settings");
         TextField searchbar= new TextField();
+        Button searchgo = new Button("Go" );
 
         //setting up panel main
         GridPane gridpane= new GridPane();
@@ -72,14 +73,15 @@ public class Main extends Application {
         gridpane.add(vote, 6, 1);
         gridpane.add(search, 20, 1);
         gridpane.add(searchbar, 21, 1);
-        gridpane.add(account, 22, 1);
-        gridpane.add(settings, 23, 1);
+        gridpane.add(searchgo, 22, 1);
+        gridpane.add(account, 23, 1);
+        gridpane.add(settings, 24, 1);
         gridpane.add(image, 1, 20, 6,20);
         gridpane.add(welcome, 21,6,2 ,20);
 
         //setting up main stage
 
-        Scene main= new Scene(gridpane, 1000, 600);
+        Scene main= new Scene(gridpane, 1200, 600);
         stage.setTitle("Open Oscars");
         stage.setScene(main);
         stage.show();
@@ -287,6 +289,12 @@ public class Main extends Application {
             public void handle(ActionEvent actionEvent) {
                 stage.setScene(main);
                 stage.show();
+            }
+        });
+        searchgo.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+            //search for movie
             }
         });
 
