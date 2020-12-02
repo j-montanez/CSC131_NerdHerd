@@ -1,4 +1,6 @@
-# Open Oscars
+
+![OpenOscars](https://raw.githubusercontent.com/j-montanez/CSC131_NerdHerd/GUI/_imgs/OpenOscarsWordmark.png)
+
 This is the semester project by NerdHerd (Group 4) for CSC131 Fall 2020
 
 For more information visit the website [Here](https://j-montanez.github.io/CSC131_NerdHerd/)
