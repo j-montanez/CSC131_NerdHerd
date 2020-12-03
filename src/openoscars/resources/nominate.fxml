@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<BorderPane fx:id="nominate" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="openoscars.Controller">
+    <top>
+        <VBox alignment="CENTER">
+            <Label text="Nominate" />
+            <Label text="2019" />
+        </VBox>
+    </top>
+    <center>
+        <GridPane alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="33.3" />
+                <ColumnConstraints percentWidth="33.3" />
+                <ColumnConstraints percentWidth="33.3" />
+            </columnConstraints>
+            <children>
+                <HBox alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="0" maxWidth="Infinity">
+                    <ImageView fitHeight="197.0" fitWidth="125.0" preserveRatio="false">
+                        <image>
+                            <Image url="https://maxcdn.icons8.com/app/uploads/2019/05/poster-for-movie.png" />
+                        </image>
+                    </ImageView>
+                    <VBox>
+                        <Label text="Movie Title" />
+                        <Label text="Award Category" />
+                        <ScrollPane prefHeight="130.0" prefWidth="250.0">
+                             <content>
+                                      <Label maxWidth="230" wrapText="true"  text="&#10;&#10;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi hendrerit dolor in est congue, a placerat eros congue. Vestibulum cursus hendrerit aliquet. Sed accumsan magna sed lectus mattis ornare non in ipsum. Donec sodales nisl justo, at dapibus quam aliquam vitae. Donec sollicitudin in nisi fringilla suscipit. Duis eu enim interdum, varius nunc eu, ultrices turpis. Nullam turpis mi, ornare nec semper et, scelerisque eget ligula. Nullam non ex consectetur, malesuada metus vel, fringilla orci. Quisque est enim, molestie quis congue ac, vestibulum bibendum odio.&#10;&#10;Duis elementum nisi lorem, sed ullamcorper dolor dignissim quis. Pellentesque lobortis est ut hendrerit placerat. Etiam porttitor tellus vel pharetra feugiat. Mauris sodales odio suscipit ornare ullamcorper. Mauris porta nisi augue, eu sagittis sapien finibus et. Nulla blandit, mi vel congue lacinia, turpis lacus congue purus, vehicula vehicula dolor ligula a odio. Sed auctor eu felis sit amet laoreet. Vivamus scelerisque enim tellus, vel egestas leo dignissim sed. Cras vitae urna vitae felis porta pulvinar. Duis vestibulum neque turpis, eget rhoncus magna vestibulum eu. Curabitur sed nunc id nulla faucibus ullamcorper. Maecenas gravida ornare lacus, in rutrum nisi tempus in. Morbi non nibh eu augue volutpat consectetur eu sed ipsum.&#10;&#10;Donec laoreet arcu ut vehicula lobortis. Vivamus tristique a tortor ac dapibus. Cras metus neque, semper consequat ex quis, pretium luctus tellus. Sed pretium a sem id sollicitudin. Suspendisse a ex ut nulla condimentum lobortis. Fusce pretium posuere bibendum. Morbi pharetra ante porttitor dignissim imperdiet. Duis nec magna enim. Nulla varius arcu id pellentesque malesuada. Sed rutrum ultricies pellentesque. Vestibulum venenatis mauris non pharetra efficitur. Nullam tempus eros viverra accumsan auctor. Morbi mollis, massa eget cursus pellentesque, magna nunc bibendum sem, vel fringilla lectus elit quis turpis.&#10;&#10;Integer bibendum lorem et libero tempor, a molestie ipsum gravida. Integer placerat eros sit amet arcu cursus, et malesuada purus convallis. Curabitur nisl est, congue ac elementum quis, efficitur a tortor. Curabitur vitae augue ut ipsum scelerisque eleifend. Etiam pharetra tortor a tortor accumsan lacinia. Sed laoreet ipsum vestibulum enim auctor lacinia. In pretium leo a tortor efficitur, eget sodales nisi rutrum. Mauris fermentum orci mollis, egestas dolor et, volutpat metus. Integer dapibus, nunc et congue sollicitudin, lacus sem imperdiet erat, a tempus dolor elit ut mauris. Donec feugiat lacus non est pharetra ullamcorper. Vestibulum vitae enim ut enim tincidunt commodo sit amet sed justo. In a odio lorem. Integer viverra urna ligula, eu sodales mauris feugiat in. Duis ut magna quis odio auctor rhoncus at sit amet diam. Praesent mollis molestie posuere. Aliquam nec vehicula ipsum.&#10;&#10;In purus sem, feugiat vitae egestas ac, tempus sit amet magna. Aliquam elementum dictum dui ut sagittis. Mauris gravida, purus in egestas lobortis, enim lorem egestas magna, et euismod purus ipsum a felis. Cras enim augue, sodales a quam in, ultricies rhoncus ligula. Morbi ut imperdiet ex. In malesuada ligula in mauris gravida vehicula. Nunc eget nulla vel tellus eleifend tempor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed id tincidunt ex. Etiam rutrum est vel lacinia tristique. Morbi posuere metus at nunc eleifend, nec volutpat arcu auctor. Praesent nibh quam, mattis sit amet mollis ut, finibus sed justo. " />
+                             </content>
+                        </ScrollPane>
+                        <Button text="Click" maxWidth="250"/>
+                    </VBox>
+                </HBox>
+                <HBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <ImageView fitHeight="197.0" fitWidth="125.0" preserveRatio="false">
+                        <image>
+                            <Image url="https://www.funkyzilla.com/ekmps/shops/6bba79/images/jaws-turkish-movie-poster-t-shirt.-gents-ladies-kids-sizes.-classic-shark-horror-film-14756-p.jpg" />
+                        </image>
+                    </ImageView>
+                    <VBox>
+                        <Label text="Movie Title" />
+                        <Label text="Award Category" />
+                        <ScrollPane prefHeight="130.0" prefWidth="250.0">
+                            <content>
+                                <Label maxWidth="230" wrapText="true"  text="&#10;&#10;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi hendrerit dolor in est congue, a placerat eros congue. Vestibulum cursus hendrerit aliquet. Sed accumsan magna sed lectus mattis ornare non in ipsum. Donec sodales nisl justo, at dapibus quam aliquam vitae. Donec sollicitudin in nisi fringilla suscipit. Duis eu enim interdum, varius nunc eu, ultrices turpis. Nullam turpis mi, ornare nec semper et, scelerisque eget ligula. Nullam non ex consectetur, malesuada metus vel, fringilla orci. Quisque est enim, molestie quis congue ac, vestibulum bibendum odio.&#10;&#10;Duis elementum nisi lorem, sed ullamcorper dolor dignissim quis. Pellentesque lobortis est ut hendrerit placerat. Etiam porttitor tellus vel pharetra feugiat. Mauris sodales odio suscipit ornare ullamcorper. Mauris porta nisi augue, eu sagittis sapien finibus et. Nulla blandit, mi vel congue lacinia, turpis lacus congue purus, vehicula vehicula dolor ligula a odio. Sed auctor eu felis sit amet laoreet. Vivamus scelerisque enim tellus, vel egestas leo dignissim sed. Cras vitae urna vitae felis porta pulvinar. Duis vestibulum neque turpis, eget rhoncus magna vestibulum eu. Curabitur sed nunc id nulla faucibus ullamcorper. Maecenas gravida ornare lacus, in rutrum nisi tempus in. Morbi non nibh eu augue volutpat consectetur eu sed ipsum.&#10;&#10;Donec laoreet arcu ut vehicula lobortis. Vivamus tristique a tortor ac dapibus. Cras metus neque, semper consequat ex quis, pretium luctus tellus. Sed pretium a sem id sollicitudin. Suspendisse a ex ut nulla condimentum lobortis. Fusce pretium posuere bibendum. Morbi pharetra ante porttitor dignissim imperdiet. Duis nec magna enim. Nulla varius arcu id pellentesque malesuada. Sed rutrum ultricies pellentesque. Vestibulum venenatis mauris non pharetra efficitur. Nullam tempus eros viverra accumsan auctor. Morbi mollis, massa eget cursus pellentesque, magna nunc bibendum sem, vel fringilla lectus elit quis turpis.&#10;&#10;Integer bibendum lorem et libero tempor, a molestie ipsum gravida. Integer placerat eros sit amet arcu cursus, et malesuada purus convallis. Curabitur nisl est, congue ac elementum quis, efficitur a tortor. Curabitur vitae augue ut ipsum scelerisque eleifend. Etiam pharetra tortor a tortor accumsan lacinia. Sed laoreet ipsum vestibulum enim auctor lacinia. In pretium leo a tortor efficitur, eget sodales nisi rutrum. Mauris fermentum orci mollis, egestas dolor et, volutpat metus. Integer dapibus, nunc et congue sollicitudin, lacus sem imperdiet erat, a tempus dolor elit ut mauris. Donec feugiat lacus non est pharetra ullamcorper. Vestibulum vitae enim ut enim tincidunt commodo sit amet sed justo. In a odio lorem. Integer viverra urna ligula, eu sodales mauris feugiat in. Duis ut magna quis odio auctor rhoncus at sit amet diam. Praesent mollis molestie posuere. Aliquam nec vehicula ipsum.&#10;&#10;In purus sem, feugiat vitae egestas ac, tempus sit amet magna. Aliquam elementum dictum dui ut sagittis. Mauris gravida, purus in egestas lobortis, enim lorem egestas magna, et euismod purus ipsum a felis. Cras enim augue, sodales a quam in, ultricies rhoncus ligula. Morbi ut imperdiet ex. In malesuada ligula in mauris gravida vehicula. Nunc eget nulla vel tellus eleifend tempor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed id tincidunt ex. Etiam rutrum est vel lacinia tristique. Morbi posuere metus at nunc eleifend, nec volutpat arcu auctor. Praesent nibh quam, mattis sit amet mollis ut, finibus sed justo. " />
+                            </content>
+                        </ScrollPane>
+                        <Button text="Click" maxWidth="250"/>
+                    </VBox>
+                </HBox>
+                <HBox alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                    <ImageView fitHeight="197.0" fitWidth="125.0" preserveRatio="false">
+                        <image>
+                            <Image url="https://www.kwikkopy.com.au/wp-content/uploads/2014/12/1.png" />
+                        </image>
+                    </ImageView>
+                    <VBox>
+                        <Label text="Movie Title" />
+                        <Label text="Award Category" />
+                        <ScrollPane prefHeight="130.0" prefWidth="250.0">
+                            <content>
+                                <Label maxWidth="230" wrapText="true" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi hendrerit dolor in est congue, a placerat eros congue. Vestibulum cursus hendrerit aliquet. Sed accumsan magna sed lectus mattis ornare non in ipsum. Donec sodales nisl justo, at dapibus quam aliquam vitae. Donec sollicitudin in nisi fringilla suscipit. Duis eu enim interdum, varius nunc eu, ultrices turpis. Nullam turpis mi, ornare nec semper et, scelerisque eget ligula. Nullam non ex consectetur, malesuada metus vel, fringilla orci. Quisque est enim, molestie quis congue ac, vestibulum bibendum odio. Duis elementum nisi lorem, sed ullamcorper dolor dignissim quis. Pellentesque lobortis est ut hendrerit placerat. Etiam porttitor tellus vel pharetra feugiat. Mauris sodales odio suscipit ornare ullamcorper. Mauris porta nisi augue, eu sagittis sapien finibus et. Nulla blandit, mi vel congue lacinia, turpis lacus congue purus, vehicula vehicula dolor ligula a odio. Sed auctor eu felis sit amet laoreet. Vivamus scelerisque enim tellus, vel egestas leo dignissim sed. Cras vitae urna vitae felis porta pulvinar. Duis vestibulum neque turpis, eget rhoncus magna vestibulum eu. Curabitur sed nunc id nulla faucibus ullamcorper. Maecenas gravida ornare lacus, in rutrum nisi tempus in. Morbi non nibh eu augue volutpat consectetur eu sed ipsum. Donec laoreet arcu ut vehicula lobortis. Vivamus tristique a tortor ac dapibus. Cras metus neque, semper consequat ex quis, pretium luctus tellus. Sed pretium a sem id sollicitudin. Suspendisse a ex ut nulla condimentum lobortis. Fusce pretium posuere bibendum. Morbi pharetra ante porttitor dignissim imperdiet. Duis nec magna enim. Nulla varius arcu id pellentesque malesuada. Sed rutrum ultricies pellentesque. Vestibulum venenatis mauris non pharetra efficitur. Nullam tempus eros viverra accumsan auctor. Morbi mollis, massa eget cursus pellentesque, magna nunc bibendum sem, vel fringilla lectus elit quis turpis. Integer bibendum lorem et libero tempor, a molestie ipsum gravida. Integer placerat eros sit amet arcu cursus, et malesuada purus convallis. Curabitur nisl est, congue ac elementum quis, efficitur a tortor. Curabitur vitae augue ut ipsum scelerisque eleifend. Etiam pharetra tortor a tortor accumsan lacinia. Sed laoreet ipsum vestibulum enim auctor lacinia. In pretium leo a tortor efficitur, eget sodales nisi rutrum. Mauris fermentum orci mollis, egestas dolor et, volutpat metus. Integer dapibus, nunc et congue sollicitudin, lacus sem imperdiet erat, a tempus dolor elit ut mauris. Donec feugiat lacus non est pharetra ullamcorper. Vestibulum vitae enim ut enim tincidunt commodo sit amet sed justo. In a odio lorem. Integer viverra urna ligula, eu sodales mauris feugiat in. Duis ut magna quis odio auctor rhoncus at sit amet diam. Praesent mollis molestie posuere. Aliquam nec vehicula ipsum. In purus sem, feugiat vitae egestas ac, tempus sit amet magna. Aliquam elementum dictum dui ut sagittis. Mauris gravida, purus in egestas lobortis, enim lorem egestas magna, et euismod purus ipsum a felis. Cras enim augue, sodales a quam in, ultricies rhoncus ligula. Morbi ut imperdiet ex. In malesuada ligula in mauris gravida vehicula. Nunc eget nulla vel tellus eleifend tempor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed id tincidunt ex. Etiam rutrum est vel lacinia tristique. Morbi posuere metus at nunc eleifend, nec volutpat arcu auctor. Praesent nibh quam, mattis sit amet mollis ut, finibus sed justo. " />
+                            </content>
+                        </ScrollPane>
+                        <Button text="Click" maxWidth="250"/>
+                    </VBox>
+                </HBox>
+            </children>
+         <rowConstraints>
+            <RowConstraints />
+         </rowConstraints>
+        </GridPane>
+    </center>
+</BorderPane>
