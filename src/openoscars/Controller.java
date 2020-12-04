@@ -6,7 +6,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 // The Controller is the class that should handle actions and logic.
 public class Controller {
@@ -122,7 +125,16 @@ public class Controller {
 
     @FXML
     private void navigateWebsite(ActionEvent event) {
-        System.out.println("Website Activated (Not really)");
+        if(Desktop.isDesktopSupported())
+        {
+            try {
+                Desktop.getDesktop().browse(new URI("https://j-montanez.github.io/CSC131_NerdHerd/"));
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            } catch (URISyntaxException e1) {
+                e1.printStackTrace();
+            }
+        }
     }
 
 }
