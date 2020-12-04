@@ -37,7 +37,7 @@
                   <TextField alignment="CENTER_RIGHT" />
                   <Button text="Search" onAction="#navigateSearch"/>
                   <Button alignment="CENTER_RIGHT" text="Account"/>
-                  <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="Settings" />
+                  <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="Settings" onAction="#navigateSettings" />
             </children>
          </HBox>
         </HBox>

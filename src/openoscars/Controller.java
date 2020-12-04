@@ -30,12 +30,19 @@ public class Controller {
     public BorderPane vote;
 
     @FXML
+    public BorderPane settings;
+
+    @FXML
     private BorderPane mainBorderPane;
 
+    @FXML
+    private BorderPane about;
 
 
-    //Navigation Button Handling
 
+    // Navigation Button Handling
+    // Note that on the last line, the current window must be referenced.
+    // It doesn't matter for the nav bar because it's still part of mainBorderPane.
     @FXML
     private void navigateHome(ActionEvent event){
         Pane view = null;
@@ -89,6 +96,33 @@ public class Controller {
             e.printStackTrace();
         }
         mainBorderPane.setCenter(view);
+    }
+
+    @FXML
+    private void navigateSettings(ActionEvent event){
+        Pane view = null;
+        try {
+            view = FXMLLoader.load(getClass().getResource("resources/settings.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        mainBorderPane.setCenter(view);
+    }
+
+    @FXML
+    private void navigateAbout(ActionEvent event){
+        Pane view = null;
+        try {
+            view = FXMLLoader.load(getClass().getResource("resources/about.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        settings.setCenter(view);
+    }
+
+    @FXML
+    private void navigateWebsite(ActionEvent event) {
+        System.out.println("Website Activated (Not really)");
     }
 
 }

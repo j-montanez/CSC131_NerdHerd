@@ -16,8 +16,8 @@
     <center>
         <GridPane alignment="CENTER">
             <columnConstraints>
-                <ColumnConstraints percentWidth="66" />
-                <ColumnConstraints percentWidth="33" />
+                <ColumnConstraints percentWidth="66.6" />
+                <ColumnConstraints percentWidth="33.3" />
             </columnConstraints>
          <children>
             <VBox alignment="CENTER" GridPane.halignment="CENTER">

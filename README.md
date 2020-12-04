@@ -1,5 +1,5 @@
 
-![OpenOscars](https://raw.githubusercontent.com/j-montanez/CSC131_NerdHerd/GUI/_imgs/OpenOscarsWordmark.png)
+![OpenOscars](https://raw.githubusercontent.com/j-montanez/CSC131_NerdHerd/GUI/src/openoscars/resources/imgs/OpenOscarsWordmark.png)
 
 This is the semester project by NerdHerd (Group 4) for CSC131 Fall 2020
 
