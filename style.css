@@ -83,9 +83,26 @@ body {
   .topnav input[type=text] {
     border: 1px solid #ccc;  
   }
+}
+
 
 .testing{
 	text-align: center;
 	font:normal 20px Tahoma;
 	color:white;
+}
+
+.block{
+  color:white;
+}
+
+.box{
+  float:left;
+  width:22.3%;
+}
+
+.text{
+  text-indent: 10px;
+  color:white;
+  font:normal 20px Tahoma;
 }
