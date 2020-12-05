@@ -1,0 +1,7 @@
+a/a
+d/d
+g/g
+d/s
+a/g
+d/g
+d/s
