@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="register" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="openoscars.Controller">
+   <center>
+      <VBox alignment="CENTER" spacing="15.0" BorderPane.alignment="TOP_CENTER">
+         <children>
+            <ImageView fitWidth="300" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imgs/OpenOscarsWordmark.png" />
+               </image>
+            </ImageView>
+            <TextField promptText="Email Address" fx:id="registerEmail"/>
+            <PasswordField promptText="Password" fx:id="registerPassword" />
+            <HBox spacing="5.0">
+               <CheckBox prefHeight="19.0" prefWidth="17.0" fx:id="tosCheckbox"/>
+               <Label prefHeight="19.0" prefWidth="75.0" text="I agree to the" />
+               <Hyperlink text="terms of service">
+                  <padding>
+                     <Insets left="-8.0" />
+                  </padding></Hyperlink>
+            </HBox>
+                  <Button alignment="CENTER" maxWidth="Infinity" mnemonicParsing="false" text="Join" onAction="#registerUser"/>
+         </children>
+         <padding>
+            <Insets left="50.0" right="50.0" />
+         </padding>
+      </VBox>
+   </center>
+</BorderPane>
