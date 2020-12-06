@@ -6,3 +6,10 @@ a/g
 d/g
 d/s
 doug/secret
+hello@gmail.com/password
+thisisareallylongaccountname@reallylongemail.com/a
+hello/hello
+sd/sd
+sd/gd
+e/e
+d/d
