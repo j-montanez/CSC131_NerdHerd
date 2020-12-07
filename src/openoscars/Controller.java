@@ -93,6 +93,7 @@ public class Controller implements Initializable {
         Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource("resources/home.fxml"));
+            root.getStylesheets().add(getClass().getResource("resources/styles.css").toExternalForm());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -107,6 +108,7 @@ public class Controller implements Initializable {
         Pane view = null;
         try {
             view = FXMLLoader.load(getClass().getResource("resources/winners.fxml"));
+            view.getStylesheets().add(getClass().getResource("resources/styles.css").toExternalForm());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -119,6 +121,7 @@ public class Controller implements Initializable {
         Pane view = null;
         try {
             view = FXMLLoader.load(getClass().getResource("resources/nominate.fxml"));
+            view.getStylesheets().add(getClass().getResource("resources/styles.css").toExternalForm());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -130,6 +133,7 @@ public class Controller implements Initializable {
         Pane view = null;
         try {
             view = FXMLLoader.load(getClass().getResource("resources/search.fxml"));
+            view.getStylesheets().add(getClass().getResource("resources/styles.css").toExternalForm());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -141,6 +145,7 @@ public class Controller implements Initializable {
         Pane view = null;
         try {
             view = FXMLLoader.load(getClass().getResource("resources/vote.fxml"));
+            view.getStylesheets().add(getClass().getResource("resources/styles.css").toExternalForm());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -152,6 +157,7 @@ public class Controller implements Initializable {
         Pane view = null;
         try {
             view = FXMLLoader.load(getClass().getResource("resources/settings.fxml"));
+            view.getStylesheets().add(getClass().getResource("resources/styles.css").toExternalForm());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -163,6 +169,7 @@ public class Controller implements Initializable {
         Pane view = null;
         try {
             view = FXMLLoader.load(getClass().getResource("resources/about.fxml"));
+            view.getStylesheets().add(getClass().getResource("resources/styles.css").toExternalForm());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -174,6 +181,7 @@ public class Controller implements Initializable {
         Pane view = null;
         try {
             view = FXMLLoader.load(getClass().getResource("resources/register.fxml"));
+            view.getStylesheets().add(getClass().getResource("resources/styles.css").toExternalForm());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -187,6 +195,7 @@ public class Controller implements Initializable {
 
         try {
             root = FXMLLoader.load(getClass().getResource("resources/login.fxml"));
+            root.getStylesheets().add(getClass().getResource("resources/styles.css").toExternalForm());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -257,6 +266,7 @@ public class Controller implements Initializable {
 
                     try {
                         root = FXMLLoader.load(getClass().getResource("resources/home.fxml"));
+                        root.getStylesheets().add(getClass().getResource("resources/styles.css").toExternalForm());
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -297,6 +307,7 @@ public class Controller implements Initializable {
         Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource("resources/account.fxml"));
+            root.getStylesheets().add(getClass().getResource("resources/styles.css").toExternalForm());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -321,6 +332,7 @@ public class Controller implements Initializable {
         // Restart login window
         Stage newStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("resources/login.fxml"));
+        root.getStylesheets().add(getClass().getResource("resources/styles.css").toExternalForm());
         newStage.setTitle("OpenOscars");
         newStage.setScene(new Scene(root, 426, 300));
         newStage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
@@ -334,6 +346,7 @@ public class Controller implements Initializable {
 
         try {
             root = FXMLLoader.load(getClass().getResource("resources/home.fxml"));
+            root.getStylesheets().add(getClass().getResource("resources/styles.css").toExternalForm());
         } catch (IOException e) {
             e.printStackTrace();
         }
