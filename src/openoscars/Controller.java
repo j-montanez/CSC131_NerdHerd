@@ -28,7 +28,7 @@ public class Controller implements Initializable {
     // Declaring the FXML Scenes
 
     @FXML
-    public BorderPane home;
+    public BorderPane homePane;
 
     @FXML
     public BorderPane winners;
@@ -37,13 +37,13 @@ public class Controller implements Initializable {
     public BorderPane nominate;
 
     @FXML
-    public BorderPane search;
+    public BorderPane searchPane;
 
     @FXML
     public BorderPane vote;
 
     @FXML
-    public BorderPane settings;
+    public BorderPane settingsPane;
 
     @FXML
     public Label userEmail;
@@ -52,13 +52,13 @@ public class Controller implements Initializable {
     public Button signOutButton;
 
     @FXML
-    private BorderPane login;
+    private BorderPane loginPane;
 
     @FXML
-    private BorderPane register;
+    private BorderPane registerPane;
 
     @FXML
-    private BorderPane about;
+    private BorderPane aboutPane;
 
 
     // Declaring the FXML ID's
@@ -89,7 +89,7 @@ public class Controller implements Initializable {
     // It doesn't matter for the nav bar because it's still part of home.
     @FXML
     private void navigateHome(ActionEvent event){
-        Stage stage = (Stage) home.getScene().getWindow();
+        Stage stage = (Stage) homePane.getScene().getWindow();
         Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource("resources/home.fxml"));
@@ -110,7 +110,7 @@ public class Controller implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        home.setCenter(view);
+        homePane.setCenter(view);
 
     }
 
@@ -122,7 +122,7 @@ public class Controller implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        home.setCenter(view);
+        homePane.setCenter(view);
     }
 
     @FXML
@@ -133,7 +133,7 @@ public class Controller implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        home.setCenter(view);
+        homePane.setCenter(view);
     }
 
     @FXML
@@ -144,7 +144,7 @@ public class Controller implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        home.setCenter(view);
+        homePane.setCenter(view);
     }
 
     @FXML
@@ -155,7 +155,7 @@ public class Controller implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        home.setCenter(view);
+        homePane.setCenter(view);
     }
 
     @FXML
@@ -166,7 +166,7 @@ public class Controller implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        settings.setCenter(view);
+        settingsPane.setCenter(view);
     }
 
     @FXML
@@ -177,12 +177,12 @@ public class Controller implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        login.setCenter(view);
+        loginPane.setCenter(view);
     }
 
     @FXML
     private void navigateLogin(ActionEvent event){
-        Stage stage = (Stage) login.getScene().getWindow();
+        Stage stage = (Stage) loginPane.getScene().getWindow();
         Parent root = null;
 
         try {
@@ -264,7 +264,7 @@ public class Controller implements Initializable {
                     stage.setScene(scene);
                     stage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
                     stage.show();
-                    Stage oldStage = (Stage) login.getScene().getWindow();
+                    Stage oldStage = (Stage) loginPane.getScene().getWindow();
                     oldStage.close();
 
                     //Saving User
@@ -306,7 +306,7 @@ public class Controller implements Initializable {
         stage.show();
 
         // close main window
-        Stage oldStage = (Stage) home.getScene().getWindow();
+        Stage oldStage = (Stage) homePane.getScene().getWindow();
         oldStage.close();
     }
 

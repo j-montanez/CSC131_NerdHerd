@@ -1,1 +1,5 @@
 /* This is where the CSS will go to style the scenes */
+.button{
+    -fx-background-color:green;
+    -fx-text-fill: white;
+}

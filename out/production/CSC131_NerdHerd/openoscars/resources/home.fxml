@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="openoscars.Controller" fx:id="home">
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="openoscars.Controller" fx:id="homePane">
 
     <top>
         <HBox id="navBar">
@@ -45,17 +45,17 @@
 
 
     <center>
-        <GridPane alignment="CENTER">
+        <GridPane alignment="BOTTOM_CENTER">
             <columnConstraints>
                 <ColumnConstraints percentWidth="66" />
                 <ColumnConstraints percentWidth="33" />
             </columnConstraints>
          <children>
-            <VBox alignment="CENTER" GridPane.halignment="CENTER">
+            <VBox alignment="BOTTOM_CENTER" GridPane.halignment="CENTER">
                <children>
-                       <ImageView preserveRatio="true">
+                       <ImageView preserveRatio="true" fitWidth="900">
                            <image>
-                               <Image url="@imgs/smol.png" />
+                               <Image url="@imgs/Oscar_Simple.png" />
                            </image>
                        </ImageView>
                </children>
