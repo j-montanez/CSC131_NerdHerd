@@ -9,11 +9,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class MovieArray {
-	static private List<MovieObj> Movies = new ArrayList<MovieObj>();
+	static private List<MovieNS> Movies = new ArrayList<MovieNS>();
 	static private List<String> yup = new ArrayList<String>();
 	
 	public MovieArray(int year) {
-		getSpringYear(year);		
+		getSpringYear(year);
 	}
 	
 	public static void getSpringYear(int year) {
@@ -32,14 +32,17 @@ public class MovieArray {
 			for(int i = 0; i<jarray.length();i++) {
 				 JSONObject movie = jarray.getJSONObject(i);
 				 String Title = movie.getString("title");
-				 yup.add(Title);		 
+				 yup.add(Title);
+				 MovieObj mv = new MovieObj(Title);
+				 MovieNS ugh = new MovieNS(mv);
+				 Movies.add(ugh);				 
 			}	 			
 	}
-	public List<MovieObj> getMovies() {
+	public List<MovieNS> getMovies() {
 		return Movies;
 	}
 
-	public void setMovies(List<MovieObj> Movies) {
+	public void setMovies(List<MovieNS> Movies) {
 		this.Movies = Movies;
 	}
 	public List<String> getYup() {
