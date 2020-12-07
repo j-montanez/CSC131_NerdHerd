@@ -15,21 +15,21 @@
                <Label text="Change Theme" />
                <HBox alignment="CENTER">
                    <fx:define>
-                       <ToggleGroup fx:id="style"/>
-                       <ToggleGroup fx:id="size"/>
+                       <ToggleGroup fx:id="styleToggleGroup"/>
+                       <ToggleGroup fx:id="sizeToggleGroup"/>
                    </fx:define>
                   <children>
-                     <RadioButton mnemonicParsing="false" text="Default" toggleGroup="$style"/>
-                     <RadioButton mnemonicParsing="false" text="High Contrast" toggleGroup="$style"/>
-                     <RadioButton mnemonicParsing="false" text="Dark Mode" toggleGroup="$style" />
+                     <RadioButton mnemonicParsing="false" text="Default" toggleGroup="$styleToggleGroup" fx:id="defaultThemeSelector"/>
+                     <RadioButton mnemonicParsing="false" text="Plain" toggleGroup="$styleToggleGroup" fx:id="plainThemeSelector"/>
+                     <RadioButton mnemonicParsing="false" text="Dark Mode" toggleGroup="$styleToggleGroup" fx:id="darkModeThemeSelector"/>
                   </children>
                </HBox>
                <Label text="Size" />
                <HBox alignment="CENTER">
                   <children>
-                     <RadioButton mnemonicParsing="false" text="S" toggleGroup="$size"/>
-                     <RadioButton mnemonicParsing="false" text="M" toggleGroup="$size"/>
-                     <RadioButton mnemonicParsing="false" text="L" toggleGroup="$size"/>
+                     <RadioButton mnemonicParsing="false" text="S" toggleGroup="$sizeToggleGroup"/>
+                     <RadioButton mnemonicParsing="false" text="M" toggleGroup="$sizeToggleGroup"/>
+                     <RadioButton mnemonicParsing="false" text="L" toggleGroup="$sizeToggleGroup"/>
                   </children>
                </HBox>
                <Button text="About" onAction="#navigateAbout"/>

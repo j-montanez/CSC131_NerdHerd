@@ -110,7 +110,6 @@ public class MovieCardFactoryController implements Initializable {
         iv.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                System.out.println("Clicked");
                 Pane view = null;
                 try {
                     view = FXMLLoader.load(getClass().getResource("resources/detail.fxml"));

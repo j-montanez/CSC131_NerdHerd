@@ -31,35 +31,20 @@
                   <Label fx:id="yearGenreDetails" />
                    <Label fx:id="imdbRatingAndVotesDetails" />
                    <Label  fx:id="metaCriticScoreDetails" />
+                   <Label  fx:id="awardsWonDetails" />
                   <Label text="Movie Details"/>
                   <ScrollPane fx:id="plotDetailsScrollpane" />
                </children>
             </VBox>
             <VBox alignment="CENTER" GridPane.columnIndex="2"  maxWidth="Infinity">
                <children>
-                  <Label text="Ratings: " />
-                  <Label text="Awards:" />
-                  <Label text="Cast" />
-                  <ScrollPane >
-                    <content>
-                      <AnchorPane >
-                           <children>
-                              <Label text="Director" />
-                              <VBox>
-                                 <children>
-                                    <Label text="Label" />
-                                 </children>
-                              </VBox>
-                              <VBox alignment="CENTER_RIGHT" >
-                                 <children>
-                                    <Label text="Label" />
-                                 </children>
-                              </VBox>
-                           </children>
-                        </AnchorPane>
-                    </content>
+                   <Label text="Cast and Crew"/>
+                  <ScrollPane fx:id="castDetailsScrollPane">
+                      <content>
+                          <Label fx:id="castDetails"/>
+                      </content>
                   </ScrollPane>
-                  <ImageView preserveRatio="true" fitWidth="256">
+                  <ImageView preserveRatio="true" fitWidth="128" fx:id="imdbLink">
                      <image>
                         <Image url="@imgs/IMDb.png"/>
                      </image>

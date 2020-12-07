@@ -15,12 +15,12 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("resources/login.fxml"));
-        root.getStylesheets().add(getClass().getResource("resources/styles.css").toExternalForm());
-        // Relative path to directory isn't participating. Linking to the github isn't great... too bad!
+        User.setTheme("resources/styles.css");
+        root.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
         primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
         primaryStage.setTitle("OpenOscars");
         Scene scene = new Scene(root, 426, 300);
-        //scene.getStylesheets().add(getClass().getResource("resources/styles.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
         primaryStage.setScene(scene);
 
         primaryStage.show();

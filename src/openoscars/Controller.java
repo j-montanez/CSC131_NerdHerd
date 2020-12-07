@@ -14,6 +14,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+
 import java.awt.*;
 import java.io.*;
 import java.net.URI;
@@ -50,6 +51,12 @@ public class Controller implements Initializable {
 
     @FXML
     public Button signOutButton;
+    @FXML
+    public RadioButton defaultThemeSelector;
+    @FXML
+    public RadioButton plainThemeSelector;
+    @FXML
+    public RadioButton darkModeThemeSelector;
 
     @FXML
     private BorderPane loginPane;
@@ -82,7 +89,14 @@ public class Controller implements Initializable {
 
 
 
-
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        if(userEmail != null){
+            User user = new User();
+            String email = user.getEmail();
+            userEmail.setText(email);
+        }
+    }
 
     // Navigation Button Handling
     // Note that on the last line, the current window must be referenced.
@@ -292,14 +306,6 @@ public class Controller implements Initializable {
         }
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        if(userEmail != null){
-            User user = new User();
-            String email = user.getEmail();
-            userEmail.setText(email);
-        }
-    }
 
     @FXML
     public void popupAccount(ActionEvent event) throws InterruptedException {

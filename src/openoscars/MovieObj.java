@@ -37,14 +37,7 @@ public class MovieObj{
 	}
 	//Sends Get request to localhost spirngboot server and sends the JSON to parseAwards
 	public static void getSpringAwards(String film) {
-//		String encodeurl = null;
-//		try{
-//			 encodeurl = URLEncoder.encode(film,"UTF-8");
-//		} catch (UnsupportedEncodingException e){
-//			e.printStackTrace();
-//		}
 		HttpClient client = HttpClient.newHttpClient();
-//		String movieUrl = "http://localhost:8080/demo/findAwards?name="+film;
 		HttpRequest request = HttpRequest.newBuilder().uri(URI.create("http://localhost:8080/demo/findAwards?name="+film)).build();
 		client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
 				.thenApply(HttpResponse::body)
