@@ -74,7 +74,19 @@ public class JDBCMovieRepository implements MovieRepository {
 //                        )
 //        );
 //	}
-
+	@Override
+	public List<Movie> findAllByYear(String year) {
+		// TODO Auto-generated method stub
+		return jdbcTemplate.query(
+                "SELECT * FROM imdb_data WHERE year = ?",
+                new Object[]{year},
+                (rs, rowNum) ->
+                        new Movie(
+                        		rs.getString("Title"),null,null,null,null,null,null,null,null,null,null,null,null,null
+                                    
+                        )
+        );
+	}
 	@Override
 	public List<Movie> findByName(String name) {
 		// TODO Auto-generated method stub
