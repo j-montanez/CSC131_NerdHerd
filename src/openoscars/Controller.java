@@ -3,12 +3,13 @@ package openoscars;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.PasswordField;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -17,16 +18,17 @@ import java.awt.*;
 import java.io.*;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Objects;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 // The Controller is the class that should handle actions and logic.
-public class Controller {
+public class Controller implements Initializable {
 
 
     // Declaring the FXML Scenes
 
     @FXML
-    public BorderPane home;
+    public BorderPane homePane;
 
     @FXML
     public BorderPane winners;
@@ -35,25 +37,28 @@ public class Controller {
     public BorderPane nominate;
 
     @FXML
-    public BorderPane search;
+    public BorderPane searchPane;
 
     @FXML
     public BorderPane vote;
 
     @FXML
-    public BorderPane settings;
+    public BorderPane settingsPane;
 
     @FXML
-    private BorderPane mainBorderPane;
+    public Label userEmail;
 
     @FXML
-    private BorderPane login;
+    public Button signOutButton;
 
     @FXML
-    private BorderPane register;
+    private BorderPane loginPane;
 
     @FXML
-    private BorderPane about;
+    private BorderPane registerPane;
+
+    @FXML
+    private BorderPane aboutPane;
 
 
     // Declaring the FXML ID's
@@ -67,6 +72,9 @@ public class Controller {
     private CheckBox tosCheckbox;
 
     @FXML
+    public javafx.scene.control.Button backButton;
+
+    @FXML
     public javafx.scene.control.TextField loginEmail;
 
     @FXML
@@ -75,18 +83,23 @@ public class Controller {
 
 
 
+
     // Navigation Button Handling
     // Note that on the last line, the current window must be referenced.
-    // It doesn't matter for the nav bar because it's still part of mainBorderPane.
+    // It doesn't matter for the nav bar because it's still part of home.
     @FXML
     private void navigateHome(ActionEvent event){
-        Pane view = null;
+        Stage stage = (Stage) homePane.getScene().getWindow();
+        Parent root = null;
         try {
-            view = FXMLLoader.load(getClass().getResource("resources/home.fxml"));
+            root = FXMLLoader.load(getClass().getResource("resources/home.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        mainBorderPane.setCenter(view);
+        Scene scene = new Scene(root, 1366, 768);
+        stage.setScene(scene);
+        stage.show();
+
     }
 
     @FXML
@@ -97,7 +110,8 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        mainBorderPane.setCenter(view);
+        homePane.setCenter(view);
+
     }
 
     @FXML
@@ -108,7 +122,7 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        mainBorderPane.setCenter(view);
+        homePane.setCenter(view);
     }
 
     @FXML
@@ -119,7 +133,7 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        mainBorderPane.setCenter(view);
+        homePane.setCenter(view);
     }
 
     @FXML
@@ -130,7 +144,7 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        mainBorderPane.setCenter(view);
+        homePane.setCenter(view);
     }
 
     @FXML
@@ -141,7 +155,7 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        mainBorderPane.setCenter(view);
+        homePane.setCenter(view);
     }
 
     @FXML
@@ -152,7 +166,7 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        settings.setCenter(view);
+        settingsPane.setCenter(view);
     }
 
     @FXML
@@ -163,12 +177,12 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        login.setCenter(view);
+        loginPane.setCenter(view);
     }
 
     @FXML
     private void navigateLogin(ActionEvent event){
-        Stage stage = (Stage) login.getScene().getWindow();
+        Stage stage = (Stage) loginPane.getScene().getWindow();
         Parent root = null;
 
         try {
@@ -200,21 +214,26 @@ public class Controller {
             String email = registerEmail.getText().trim();
             String password = registerPassword.getText().trim();
             File usernames = new File("/src/openoscars/resources/users.txt");
-//            System.out.println( System.getProperty("user.dir") + usernames);
             String absolute = System.getProperty("user.dir") + usernames ;
             FileWriter fw = new FileWriter(absolute, true);
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write(email + "/" + password);
             bw.newLine();
             bw.close();
-            Alert a = new Alert(Alert.AlertType.NONE, "Account Created", ButtonType.OK);
-            a.show();
+            Alert alert = new Alert(Alert.AlertType.NONE, "Account Created", ButtonType.OK);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
+            alert.show();
         } else if(!tosCheckbox.isSelected()) {
-            Alert a = new Alert(Alert.AlertType.NONE, "Please agree to the terms of service.", ButtonType.OK);
-            a.show();
+            Alert alert = new Alert(Alert.AlertType.NONE, "Please agree to the terms of service.", ButtonType.OK);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
+            alert.show();
         } else {
-            Alert a = new Alert(Alert.AlertType.NONE, "Please enter your email and password", ButtonType.OK);
-            a.show();
+            Alert alert = new Alert(Alert.AlertType.NONE, "Please enter your email and password", ButtonType.OK);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
+            alert.show();
         }
 
     }
@@ -223,33 +242,36 @@ public class Controller {
     public void loginButton(ActionEvent event) throws FileNotFoundException {
         File usernames = new File("/src/openoscars/resources/users.txt");
         String absolute = System.getProperty("user.dir") + usernames ;
-        String search = new String(loginEmail.getText().trim() + "/" + loginPassword.getText().trim());
-
-
-//        Scanner scanner = new Scanner(absolute);
+        String email = loginEmail.getText().trim();
+        String search = email + "/" + loginPassword.getText().trim();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(new File(absolute)))) {
 
             String line = reader.readLine();
             while (line  != null){
-                System.out.println("Line: " + line + " Search: " +  search + " Is equal? " + Objects.equals(line, search));
 
                 if (line != null && line.equals(search)) {
-                    System.out.println("ho hum, i found it");
+
                     Stage stage = new Stage();
                     Parent root = null;
 
                     try {
-                        root = FXMLLoader.load(getClass().getResource("resources/mainWindow.fxml"));
+                        root = FXMLLoader.load(getClass().getResource("resources/home.fxml"));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                     Scene scene = new Scene(root, 1366, 768);
                     stage.setScene(scene);
+                    stage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
                     stage.show();
-                    Stage oldStage = (Stage) login.getScene().getWindow();
+                    Stage oldStage = (Stage) loginPane.getScene().getWindow();
                     oldStage.close();
+
+                    //Saving User
+                    User user = new User();
+                    user.setEmail(email);
                     return;
+
                 }
                 line = reader.readLine();
             }
@@ -259,19 +281,68 @@ public class Controller {
             e.printStackTrace();
         }
     }
-        //now read the file line by line...
-//        int lineNum = 0;
-//        System.out.println(scanner.hasNextLine());
-//        while (scanner.hasNext()) {
-//            System.out.println(scanner.next());
-////            System.out.println("In while");
-//            String line = scanner.nextLine();
-//            System.out.println(line);
-//            System.out.println(lineNum);
-//            lineNum++;
 
-//        }
-//
-//    }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        if(userEmail != null){
+            User user = new User();
+            String email = user.getEmail();
+            userEmail.setText(email);
+        }
+    }
+
+    @FXML
+    public void popupAccount(ActionEvent event) throws InterruptedException {
+        Stage stage = new Stage();
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("resources/account.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Scene scene = new Scene(root, 426, 300);
+        stage.setScene(scene);
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
+        stage.show();
+
+        // close main window
+        Stage oldStage = (Stage) homePane.getScene().getWindow();
+        oldStage.close();
+    }
+
+    @FXML
+    public void logoutButton(ActionEvent event) throws IOException, InterruptedException {
+
+        // Close logout window
+        Stage stage = (Stage) backButton.getScene().getWindow();
+        stage.close();
+
+
+        // Restart login window
+        Stage newStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("resources/login.fxml"));
+        newStage.setTitle("OpenOscars");
+        newStage.setScene(new Scene(root, 426, 300));
+        newStage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
+        newStage.show();
+    }
+
+    @FXML
+    public void logoutBackButton(ActionEvent event) {
+        Stage stage = new Stage();
+        Parent root = null;
+
+        try {
+            root = FXMLLoader.load(getClass().getResource("resources/home.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Scene scene = new Scene(root, 1366, 768);
+        stage.setScene(scene);
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
+        stage.show();
+        Stage oldStage = (Stage) backButton.getScene().getWindow();
+        oldStage.close();
+    }
 
 }

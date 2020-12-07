@@ -11,45 +11,41 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="about" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="openoscars.Controller">
+<BorderPane fx:id="aboutPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="openoscars.Controller">
     <center>
-        <GridPane alignment="CENTER">
+        <VBox alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="0" maxWidth="Infinity" maxHeight="Infinity">
             <children>
-                <VBox alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="0">
-               <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
+                <ImageView fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
                         <Image url="@imgs/OpenOscarsWordmark.png" />
-                     </image>
-                  </ImageView>
-                  <Label text="was created by" />
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
+                    </image>
+                </ImageView>
+                <Label text="was created by" />
+                <ImageView fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
                         <Image url="@imgs/NERDHERD_inline_black.png" />
-                     </image>
-                  </ImageView>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
+                    </image>
+                </ImageView>
+                <HBox prefHeight="100.0" prefWidth="200.0" alignment="CENTER">
+                    <children>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <Label text="Jose Montanez" />
-                              <Label text="Evelyn Pikalov" />
-                              <Label text="Skyler Rader" />
-                           </children>
+                            <children>
+                                <Label text="Jose Montanez" />
+                                <Label text="Evelyn Pikalov" />
+                                <Label text="Skyler Rader" />
+                            </children>
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <Label text="Alex Smith" />
-                              <Label text="Steven Tran" />
-                              <Label text="Phuc Truong" />
-                           </children>
+                            <children>
+                                <Label text="Alex Smith" />
+                                <Label text="Steven Tran" />
+                                <Label text="Phuc Truong" />
+                            </children>
                         </VBox>
-                     </children>
-                  </HBox>
-                  <Button mnemonicParsing="false" text="Learn More" onAction="#navigateWebsite"/>
-               </children>
-                </VBox>
+                    </children>
+                </HBox>
+                <Button mnemonicParsing="false" text="Learn More" onAction="#navigateWebsite"/>
             </children>
-        </GridPane>
+        </VBox>
     </center>
 </BorderPane>

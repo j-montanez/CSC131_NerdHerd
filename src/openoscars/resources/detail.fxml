@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="detailPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="openoscars.DetailController">
+    <center>
+        <GridPane fx:id="gridPane" alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="33.3" />
+                <ColumnConstraints percentWidth="33.3" />
+                <ColumnConstraints percentWidth="33.3" />
+            </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+         </rowConstraints>
+         <children>
+            <VBox alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imgs/tempMovies/joker.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+               <children>
+                  <Label text="Movie Title" />
+                  <Label text="2019 (Genre)" />
+                  <Label text="Movie Details" />
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                     <content>
+                        <Label text="Label" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
+               <children>
+                  <Label text="Ratings: " />
+                  <Label text="Awards:" />
+                  <Label text="Cast" />
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Director" />
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <Label text="Label" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <Label text="Label" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+                  <ImageView fitHeight="36.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imgs/IMDb.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+         </children>
+        </GridPane>
+    </center>
+</BorderPane>

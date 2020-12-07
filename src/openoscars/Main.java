@@ -16,7 +16,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("resources/login.fxml"));
         // Relative path to directory isn't participating. Linking to the github isn't great... too bad!
-        primaryStage.getIcons().add(new Image("https://raw.githubusercontent.com/j-montanez/CSC131_NerdHerd/GUI/src/openoscars/resources/imgs/icon.png"));
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
         primaryStage.setTitle("OpenOscars");
         primaryStage.setScene(new Scene(root, 426, 300));
         primaryStage.show();
