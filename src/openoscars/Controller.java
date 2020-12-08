@@ -1,5 +1,7 @@
 package openoscars;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,9 +13,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
 
 import java.awt.*;
 import java.io.*;
@@ -32,16 +34,7 @@ public class Controller implements Initializable {
     public BorderPane homePane;
 
     @FXML
-    public BorderPane winners;
-
-    @FXML
-    public BorderPane nominate;
-
-    @FXML
     public BorderPane searchPane;
-
-    @FXML
-    public BorderPane vote;
 
     @FXML
     public BorderPane settingsPane;
@@ -57,15 +50,11 @@ public class Controller implements Initializable {
     public RadioButton plainThemeSelector;
     @FXML
     public RadioButton darkModeThemeSelector;
+    @FXML
+    public HBox navBar;
 
     @FXML
     private BorderPane loginPane;
-
-    @FXML
-    private BorderPane registerPane;
-
-    @FXML
-    private BorderPane aboutPane;
 
 
     // Declaring the FXML ID's
@@ -85,7 +74,24 @@ public class Controller implements Initializable {
     public javafx.scene.control.TextField loginEmail;
 
     @FXML
+    public ToggleGroup styleToggleGroup;
+
+    @FXML
     private PasswordField loginPassword;
+
+    @FXML
+    public void refreshSettingsPane () throws IOException {
+        Pane view = null;
+        try {
+            view = FXMLLoader.load(getClass().getResource("resources/settings.fxml"));
+            view.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        settingsPane.setCenter(view);
+
+
+    }
 
 
 
@@ -95,6 +101,41 @@ public class Controller implements Initializable {
             User user = new User();
             String email = user.getEmail();
             userEmail.setText(email);
+        }
+        if(settingsPane != null){
+            try {
+                styleToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Toggle> ob,
+                                        Toggle o, Toggle n)
+                    {
+
+
+                        RadioButton rb = (RadioButton)styleToggleGroup.getSelectedToggle();
+
+                        if (rb != null) {
+                            if (rb == darkModeThemeSelector){
+                                System.out.println(settingsPane.getStylesheets());
+                                settingsPane.getStylesheets().clear();
+                                User.setTheme("resources/darkmode.css");
+                                settingsPane.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
+//
+//                                try {
+//                                    refreshSettingsPane();
+//                                } catch (IOException e) {
+//                                    e.printStackTrace();
+//                                }
+//                                System.out.println(settingsPane);
+//                                System.out.println(homePane);
+
+
+                            }
+                        }
+                    }
+                });
+            } catch (NullPointerException e) {
+                System.out.println("Null Pointer");
+            }
         }
     }
 
@@ -107,7 +148,7 @@ public class Controller implements Initializable {
         Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource("resources/home.fxml"));
-            root.getStylesheets().add(getClass().getResource("resources/styles.css").toExternalForm());
+            root.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -122,7 +163,7 @@ public class Controller implements Initializable {
         Pane view = null;
         try {
             view = FXMLLoader.load(getClass().getResource("resources/winners.fxml"));
-            view.getStylesheets().add(getClass().getResource("resources/styles.css").toExternalForm());
+            view.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -135,7 +176,7 @@ public class Controller implements Initializable {
         Pane view = null;
         try {
             view = FXMLLoader.load(getClass().getResource("resources/nominate.fxml"));
-            view.getStylesheets().add(getClass().getResource("resources/styles.css").toExternalForm());
+            view.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -147,7 +188,7 @@ public class Controller implements Initializable {
         Pane view = null;
         try {
             view = FXMLLoader.load(getClass().getResource("resources/search.fxml"));
-            view.getStylesheets().add(getClass().getResource("resources/styles.css").toExternalForm());
+            view.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -159,7 +200,7 @@ public class Controller implements Initializable {
         Pane view = null;
         try {
             view = FXMLLoader.load(getClass().getResource("resources/vote.fxml"));
-            view.getStylesheets().add(getClass().getResource("resources/styles.css").toExternalForm());
+            view.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -171,11 +212,13 @@ public class Controller implements Initializable {
         Pane view = null;
         try {
             view = FXMLLoader.load(getClass().getResource("resources/settings.fxml"));
-            view.getStylesheets().add(getClass().getResource("resources/styles.css").toExternalForm());
+            view.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
         } catch (IOException e) {
             e.printStackTrace();
         }
         homePane.setCenter(view);
+
+
     }
 
     @FXML
@@ -183,7 +226,7 @@ public class Controller implements Initializable {
         Pane view = null;
         try {
             view = FXMLLoader.load(getClass().getResource("resources/about.fxml"));
-            view.getStylesheets().add(getClass().getResource("resources/styles.css").toExternalForm());
+            view.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -195,7 +238,7 @@ public class Controller implements Initializable {
         Pane view = null;
         try {
             view = FXMLLoader.load(getClass().getResource("resources/register.fxml"));
-            view.getStylesheets().add(getClass().getResource("resources/styles.css").toExternalForm());
+            view.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -209,7 +252,7 @@ public class Controller implements Initializable {
 
         try {
             root = FXMLLoader.load(getClass().getResource("resources/login.fxml"));
-            root.getStylesheets().add(getClass().getResource("resources/styles.css").toExternalForm());
+            root.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -280,7 +323,7 @@ public class Controller implements Initializable {
 
                     try {
                         root = FXMLLoader.load(getClass().getResource("resources/home.fxml"));
-                        root.getStylesheets().add(getClass().getResource("resources/styles.css").toExternalForm());
+                        root.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -294,6 +337,7 @@ public class Controller implements Initializable {
                     //Saving User
                     User user = new User();
                     user.setEmail(email);
+
                     return;
 
                 }
@@ -313,7 +357,7 @@ public class Controller implements Initializable {
         Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource("resources/account.fxml"));
-            root.getStylesheets().add(getClass().getResource("resources/styles.css").toExternalForm());
+            root.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -338,7 +382,7 @@ public class Controller implements Initializable {
         // Restart login window
         Stage newStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("resources/login.fxml"));
-        root.getStylesheets().add(getClass().getResource("resources/styles.css").toExternalForm());
+        root.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
         newStage.setTitle("OpenOscars");
         newStage.setScene(new Scene(root, 426, 300));
         newStage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
@@ -352,7 +396,7 @@ public class Controller implements Initializable {
 
         try {
             root = FXMLLoader.load(getClass().getResource("resources/home.fxml"));
-            root.getStylesheets().add(getClass().getResource("resources/styles.css").toExternalForm());
+            root.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
         } catch (IOException e) {
             e.printStackTrace();
         }
