@@ -23,6 +23,8 @@ public interface MovieRepository {
 //    Optional<Movie> findById(Long id);
 //
 //    String getNameById(Long id);
+	List<Movie> findByOscar(String name);
+
 	List<Movie> findAllByYear(String year);
 
 	List<Movie> findByName(String name);
