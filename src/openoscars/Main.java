@@ -25,6 +25,38 @@ public class Main extends Application {
 
         primaryStage.show();
 
+
+
+
+        // Test for MovieArray
+
+//        MovieArray mv = new MovieArray(1957);
+//        System.out.println(mv);
+//        List<MovieNS> movies = mv.getMovies();
+//        System.out.println(movies);
+//        List<String> tit = mv.getYup();
+//        System.out.println(tit);
+//        for(int i = 0; i<5;i++) {
+//            System.out.println(movies.get(i).getTitle());
+//            System.out.println(i);
+//        }
+
+
+
+
+
+        // Test for MovieArraySearch
+        // Update: IT WORKS!
+
+//        MovieArraySearch mv = new MovieArraySearch("horror");
+////        System.out.println(mv);
+//        List<MovieNS> movies = mv.getMovies();
+////        System.out.println(movies);
+//        List<String> tit = mv.getYup();
+////        System.out.println(tit);
+//        for(int i = 0; i<6;i++) {
+//            System.out.println(i + " " + movies.get(i).getTitle());
+//        }
     }
 
     public static void main(String[] args)

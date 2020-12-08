@@ -68,7 +68,7 @@ public class MovieCardFactoryController implements Initializable {
         // Poster
         Image poster = new Image(posterIn);
         if(poster.isError()) {
-            poster = new Image("file:resources/imgs/noimage.png");
+            poster = new Image("file:@resources/imgs/noimage.png");
         }
         ImageView iv = new ImageView();
         iv.setImage(poster);
