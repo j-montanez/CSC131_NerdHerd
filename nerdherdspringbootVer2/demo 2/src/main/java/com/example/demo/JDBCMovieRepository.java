@@ -91,24 +91,24 @@ public class JDBCMovieRepository implements MovieRepository {
 	public List<Movie> findByName(String name) {
 		// TODO Auto-generated method stub
 		return jdbcTemplate.query(
-                "SELECT * FROM imdb_data WHERE title = ?",
-                new Object[]{name},
+                "SELECT * FROM imdb_data WHERE title iLIKE ?",
+                new Object[]{"%"+name+"%"},
                 (rs, rowNum) ->
                         new Movie(
-								rs.getString("Title"),
-								rs.getString("Year"),
-								rs.getString("Rated"),
-								rs.getString("Released"),
-								rs.getString("Runtime"),
-								rs.getString("Genre"),
-								rs.getString("Director"),
-								rs.getString("Writer"),
-								rs.getString("Actors"),
-								rs.getString("Plot"),
-								rs.getString("Poster"),
-								rs.getString("Metascore"),
-								rs.getString("imdbRating"),
-								rs.getString("imdbVotes")
+                                rs.getString("Title"),
+                                rs.getString("Year"),
+                                rs.getString("Rated"),
+                                rs.getString("Released"),
+                                rs.getString("Runtime"),
+                                rs.getString("Genre"),
+                                rs.getString("Director"),
+                                rs.getString("Writer"),
+                                rs.getString("Actors"),
+                                rs.getString("Plot"),
+                                rs.getString("Poster"),
+                                rs.getString("Metascore"),
+                                rs.getString("imdbRating"),
+                                rs.getString("imdbVotes")
                                 
                         )
         );
@@ -117,13 +117,25 @@ public class JDBCMovieRepository implements MovieRepository {
 	public List<MovieAwards> findAwards(String name) {
 		// TODO Auto-generated method stub
 		return jdbcTemplate.query(
-                "SELECT * FROM kaggle_data WHERE winner='True' AND film = ?",
-                new Object[]{name},
+                "SELECT * FROM kaggle_data WHERE winner='True' AND film iLIKE ?",
+                new Object[]{"%"+name+"%"},
                 (rs, rowNum) ->
                         new MovieAwards(
                                 rs.getString("Film"),
                                 rs.getString("Category")
                         )
+        );
+	}
+	@Override
+	public List<Movie> findByOscar(String name) {
+		// TODO Auto-generated method stub
+		return jdbcTemplate.query(
+                "SELECT imdb_data.* FROM imdb_data,kaggle_data WHERE imdb_data.title = kaggle_data.film AND kaggle_data.winner = 'True' AND kaggle_data.category iLike ?",
+                new Object[]{"%"+name+"%"},
+                (rs, rowNum) ->
+                new Movie(
+                		rs.getString("Title"),null,null,null,null,null,null,null,null,null,null,null,null,null
+                )
         );
 	}
 	

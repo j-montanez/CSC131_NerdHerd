@@ -43,6 +43,10 @@ public class MainController {
 //  }
 //  
 // 
+  @GetMapping(path="/findByOscar")
+  public @ResponseBody List<Movie> findByOscar(@RequestParam String name) {
+    return movieRepository.findByOscar(name);
+  }
   @GetMapping(path="/findAllByYear")
   public @ResponseBody List<Movie> findAllByYear(@RequestParam String year) {
     return movieRepository.findAllByYear(year);
@@ -55,5 +59,6 @@ public class MainController {
   public @ResponseBody List<MovieAwards> findAwards(@RequestParam String name) {
     return movieRepository.findAwards(name);
   }
+  
   
 }
