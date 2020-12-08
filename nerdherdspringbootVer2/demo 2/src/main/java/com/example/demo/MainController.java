@@ -42,7 +42,15 @@ public class MainController {
 //    return movieRepository.findByNameAndYear(name, year);
 //  }
 //  
-//  
+// 
+  @GetMapping(path="/findByOscar")
+  public @ResponseBody List<Movie> findByOscar(@RequestParam String name) {
+    return movieRepository.findByOscar(name);
+  }
+  @GetMapping(path="/findAllByYear")
+  public @ResponseBody List<Movie> findAllByYear(@RequestParam String year) {
+    return movieRepository.findAllByYear(year);
+  }
   @GetMapping(path="/findByName")
   public @ResponseBody List<Movie> findByName(@RequestParam String name) {
     return movieRepository.findByName(name);
@@ -51,5 +59,6 @@ public class MainController {
   public @ResponseBody List<MovieAwards> findAwards(@RequestParam String name) {
     return movieRepository.findAwards(name);
   }
+  
   
 }
