@@ -95,20 +95,20 @@ public class JDBCMovieRepository implements MovieRepository {
                 new Object[]{name},
                 (rs, rowNum) ->
                         new Movie(
-                                rs.getString("Title"),
-                                rs.getString("Year"),
-                                rs.getString("Rated"),
-                                rs.getString("plot"),
-                                rs.getString("Released"),
-                                rs.getString("Runtime"),
-                                rs.getString("Director"),
-                                rs.getString("Writer"),
-                                rs.getString("Actors"),
-                                rs.getString("Plot"),
-                                rs.getString("Poster"),
-                                rs.getString("Metascore"),
-                                rs.getString("imdbRating"),
-                                rs.getString("imdbVotes")
+								rs.getString("Title"),
+								rs.getString("Year"),
+								rs.getString("Rated"),
+								rs.getString("Released"),
+								rs.getString("Runtime"),
+								rs.getString("Genre"),
+								rs.getString("Director"),
+								rs.getString("Writer"),
+								rs.getString("Actors"),
+								rs.getString("Plot"),
+								rs.getString("Poster"),
+								rs.getString("Metascore"),
+								rs.getString("imdbRating"),
+								rs.getString("imdbVotes")
                                 
                         )
         );

@@ -119,14 +119,6 @@ public class Controller implements Initializable {
                                 settingsPane.getStylesheets().clear();
                                 User.setTheme("resources/darkmode.css");
                                 settingsPane.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
-//
-//                                try {
-//                                    refreshSettingsPane();
-//                                } catch (IOException e) {
-//                                    e.printStackTrace();
-//                                }
-//                                System.out.println(settingsPane);
-//                                System.out.println(homePane);
 
 
                             }

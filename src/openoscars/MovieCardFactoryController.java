@@ -15,6 +15,7 @@ import javafx.scene.layout.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -35,11 +36,21 @@ public class MovieCardFactoryController implements Initializable {
     @FXML
     public BorderPane searchPane;
 
+    public static int year=0;
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         for (int j=0;j<2;j++) {             // rows
             for (int i=0;i<3;i++) {         // columns
-                createCard(j,i);
+                MovieArray mv = new MovieArray(1957);
+                year++;
+                List<MovieNS> movies = mv.getMovies();
+                List<String> tit = mv.getYup();
+                createCard(j,i,);
+//                for(int k = 0; k<movies.size();k++) {
+//                    System.out.println(k + " " + movies.get(k).getTitle() + " " + movies.get(i).getGenre());
+//                }
             }
 
         }
@@ -47,10 +58,10 @@ public class MovieCardFactoryController implements Initializable {
     }
 
 
-        public void createCard(int row, int column) {
+        public void createCard(int row, int column, String title, String category, String poster, String plot) {
 
 //      Variables
-        String posterLink = new String();
+        String posterLink =;
         String titleText = new String("Movie Title");
         String categoryText = new String("Category");
         String descriptionText = new String("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi hendrerit dolor in est congue, a placerat eros congue." +

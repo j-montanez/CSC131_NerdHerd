@@ -3,14 +3,14 @@ package openoscars;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URI;
+import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
-
-
 
 public class MovieObj{
 	static private String Title;
@@ -35,10 +35,19 @@ public class MovieObj{
 		getSpringAwards(film);	
 
 	}
+	
+	
 	//Sends Get request to localhost spirngboot server and sends the JSON to parseAwards
 	public static void getSpringAwards(String film) {
+		String encodedurl = null;
+		try {
+			encodedurl = URLEncoder.encode(film ,"UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		HttpClient client = HttpClient.newHttpClient();
-		HttpRequest request = HttpRequest.newBuilder().uri(URI.create("http://localhost:8080/demo/findAwards?name="+film)).build();
+		HttpRequest request = HttpRequest.newBuilder().uri(URI.create("http://localhost:8080/demo/findAwards?name="+encodedurl)).build();
 		client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
 				.thenApply(HttpResponse::body)
 				.thenAccept(MovieObj::parseAwards)
@@ -57,10 +66,17 @@ public class MovieObj{
 				 
 			 			
 	}
-	// Sends Get request to localhost spring-boot server and sends the JSON to parseImdb
+	////Sends Get request to localhost spirngboot server and sends the JSON to parseImdb
 	public static void getSpring(String film) {
+		String encodedurl = null;
+		try {
+			encodedurl = URLEncoder.encode(film ,"UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		HttpClient client = HttpClient.newHttpClient();
-		HttpRequest request = HttpRequest.newBuilder().uri(URI.create("http://localhost:8080/demo/findByName?name="+film)).build();
+		HttpRequest request = HttpRequest.newBuilder().uri(URI.create("http://localhost:8080/demo/findByName?name="+encodedurl)).build();
 		client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
 				.thenApply(HttpResponse::body)
 				.thenAccept(MovieObj::parseImdb)
