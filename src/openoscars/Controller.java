@@ -6,6 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.fxml.LoadException;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -13,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -156,6 +159,17 @@ public class Controller implements Initializable {
         try {
             view = FXMLLoader.load(getClass().getResource("resources/winners.fxml"));
             view.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
+        } catch (LoadException e){
+            Label noConnection = new Label("No Connection");
+            noConnection.setMaxWidth(Double.MAX_VALUE);
+            GridPane accidentPane = new GridPane();
+            accidentPane.add(noConnection, 0, 0);
+            accidentPane.setAlignment(Pos.CENTER);
+
+            view = accidentPane;
+//            BorderPane.setAlignment(view, Pos.CENTER);
+//            System.out.println("No connection");
+
         } catch (IOException e) {
             e.printStackTrace();
         }

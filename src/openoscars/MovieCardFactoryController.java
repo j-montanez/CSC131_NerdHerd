@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
@@ -12,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -35,8 +37,12 @@ public class MovieCardFactoryController implements Initializable {
     @FXML
     public BorderPane searchPane;
 
+    @FXML
+    public Button nextButton;
 
+    // global
     public static int index = 0;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         MovieArray mv = new MovieArray(1957);
@@ -46,7 +52,7 @@ public class MovieCardFactoryController implements Initializable {
             for (int i=0;i<3;i++) {         // columns
                 createCard(j,i,movies.get(index).getTitle(),"category",movies.get(index).getPoster(),movies.get(index).getPlot());
                 index++;
-                System.out.println(index + " " + movies.get(index).getTitle() + " " + movies.get(index).getPoster() + " " + movies.get(index).getPlot());
+//                System.out.println(index + " " + movies.get(index).getTitle() + " " + movies.get(index).getPoster() + " " + movies.get(index).getPlot());
 
             }
 
@@ -68,7 +74,10 @@ public class MovieCardFactoryController implements Initializable {
         // Poster
         Image poster = new Image(posterIn);
         if(poster.isError()) {
-            poster = new Image("file:@resources/imgs/noimage.png");
+            File noImg = new File("/src/openoscars/resources/imgs/noimage.png");
+            String absolute = System.getProperty("user.dir") + noImg ;
+            poster = new Image("file:" + absolute); // Find out why this doesn't display
+//            System.out.println(poster);
         }
         ImageView iv = new ImageView();
         iv.setImage(poster);
@@ -136,4 +145,20 @@ public class MovieCardFactoryController implements Initializable {
             }
         });
         }
+
+    @FXML
+    public void nextPage(MouseEvent mouseEvent) {
+        //Next: figure out why mouse event doesn't trigger
+        System.out.println("in next button");
+        // clear out the old cards
+        gridPane.getChildren().removeAll();
+    }
+
+    @FXML
+    public void prevPage(MouseEvent mouseEvent) {
+        //Next: figure out why mouse event doesn't trigger
+        System.out.println("in prev button");
+        // clear out the old cards
+        gridPane.getChildren().removeAll();
+    }
 }
