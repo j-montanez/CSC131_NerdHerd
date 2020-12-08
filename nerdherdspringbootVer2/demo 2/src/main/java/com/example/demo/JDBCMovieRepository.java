@@ -138,7 +138,48 @@ public class JDBCMovieRepository implements MovieRepository {
                 )
         );
 	}
-	
+
+
+	@Override
+	public List<Movie> generalSearch(String keyWord) {
+		// TODO Auto-generated method stub
+		return jdbcTemplate.query(
+				"SELECT\n" +
+						"    kaggle_data., imdb_data.\n" +
+						"FROM\n" +
+						"    kaggle_data INNER JOIN imdb_data ON kaggle_data.film=imdb_data.title\n" +
+						"WHERE\n" +
+						"    title iLIKE ? OR\n" +
+						"    genre iLIKE ? OR\n" +
+						"    director iLIKE ? OR\n" +
+						"    writer iLIKE ? OR\n" +
+						"    actors iLIKE ? OR\n" +
+						"    plot iLIKE ? OR\n" +
+						"    imdb_data.language iLIKE ? OR\n" +
+						"    country iLIKE ? OR\n" +
+						"    category iLIKE ? OR\n" +
+						"    kaggle_data.name iLIKE ? \n",
+				new Object[]{"%"+keyWord+"%","%"+keyWord+"%","%"+keyWord+"%","%"+keyWord+"%","%"+keyWord+"%","%"+keyWord+"%","%"+keyWord+"%","%"+keyWord+"%","%"+keyWord+"%","%"+keyWord+"%"},
+				(rs, rowNum) ->
+						new Movie(
+								rs.getString("Title"),
+								rs.getString("Year"),
+								rs.getString("Rated"),
+								rs.getString("Released"),
+								rs.getString("Runtime"),
+								rs.getString("Genre"),
+								rs.getString("Director"),
+								rs.getString("Writer"),
+								rs.getString("Actors"),
+								rs.getString("Plot"),
+								rs.getString("Poster"),
+								rs.getString("Metascore"),
+								rs.getString("imdbRating"),
+								rs.getString("imdbVotes")
+
+						)
+		);
+	}
 //	@Override
 //	public Optional<Movie> findById(Long id) {
 //		// TODO Auto-generated method stub

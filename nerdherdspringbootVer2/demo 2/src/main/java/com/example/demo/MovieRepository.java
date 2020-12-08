@@ -31,5 +31,6 @@ public interface MovieRepository {
 	
 	List<MovieAwards> findAwards(String name);
 
+	List<Movie> generalSearch(String keyWord);
     
 }

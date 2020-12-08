@@ -59,6 +59,9 @@ public class MainController {
   public @ResponseBody List<MovieAwards> findAwards(@RequestParam String name) {
     return movieRepository.findAwards(name);
   }
-  
+  @GetMapping(path="/generalSearch")
+  public @ResponseBody List<MovieAwards> generalSearch(@RequestParam String keyWord) {
+    return movieRepository.generalSearch(keyWord);
+  }
   
 }
