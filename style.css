@@ -1,6 +1,6 @@
 *{
 	margin:.5%;
-	
+	font:Tahoma;
 }
 
 h1{
@@ -8,14 +8,20 @@ h1{
 	background-color: #990000;
 	padding:1% 2%;
 	color:white;
+  border:1px gold solid;
 }
+html{
 
+}
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   background-color:maroon;
 }
 
+.clr{
+  clear:both;
+}
 /* Add a black background color to the top navigation bar */
 .topnav {
   overflow: hidden;
@@ -27,9 +33,10 @@ body {
   display: block;
   color: black;
   text-align: center;
-  padding: 14px 16px;
+  padding: .5% 13.1%;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 25px;
+  border:1px maroon solid;
 }
 
 .topnav a:hover {
@@ -40,32 +47,6 @@ body {
 .topnav a.active {
   background-color: #2196F3;
   color: white;
-}
-
-.topnav .search-container {
-  float: right;
-}
-
-.topnav input[type=text] {
-  padding: 6px;
-  margin-top: 8px;
-  font-size: 17px;
-  border: none;
-}
-
-.topnav .search-container button {
-  float: right;
-  padding: 6px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
-}
-
-.topnav .search-container button:hover {
-  background: #ccc;
 }
 
 @media screen and (max-width: 600px) {
@@ -85,6 +66,47 @@ body {
   }
 }
 
+.sidenav {
+  width:190px;
+  top: 20px;
+  left: 10px;
+  background: maroon;
+  overflow-x: hidden;
+  padding: 8px 0;
+  border:5px black solid;
+  float:left;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
+}
+
+.sidenav a.active{
+  color: gold;
+}
+
+.sidenav a.active:hover{
+  color: gold;
+}
+
+.sidenav a:hover {
+  color: yellow;
+}
+
+.main {
+  margin-left: 140px; /* Same width as the sidebar + left position in px */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
 
 .testing{
 	text-align: center;
@@ -98,11 +120,108 @@ body {
 
 .box{
   float:left;
-  width:22.3%;
+  width:15%;
 }
 
 .text{
-  text-indent: 10px;
   color:white;
   font:normal 20px Tahoma;
+}
+
+.text2{
+  color:gold;
+  font:normal 15px Tahoma;
+
+}
+
+.line{
+  margin-left: 50px;
+}
+
+.oscarman{
+  float: left;
+  margin-right: 20px;
+}
+
+.oscartext{
+  padding-top: 30px;
+  color:white;
+  font:20px Tahoma;
+  margin-left:20px;
+}
+
+.sendmsg{
+    padding-top: 20px;
+    font-size:40px;
+    margin-left:230px;
+  border:5px gold solid;
+  /*border-bottom: 0px;*/
+  background-color: white;
+  padding:20px;
+}
+
+.endpoint{
+  background-color: #dee1e3;
+  width: 485px;
+  border:2px #dee1e3 solid;
+}
+
+.explain{
+  font:20px Tahoma;
+}
+
+.findheading{
+  font-size:50px;
+}
+
+.get{
+font-size:30px;
+}
+
+.commandline{
+font-size:30px;
+}
+
+.container{
+  margin-left:230px;
+  border:5px gold solid;
+  /*border-bottom: 0px;*/
+  background-color: white;
+  padding:20px;
+}
+
+.container hr{
+  height: 1px;
+  background-color: gold;
+  border:none;
+}
+
+.paramtitle{
+font-size: 25px;
+}
+
+.parameters{
+font-size: 20px;
+line-height: 28px;
+}
+
+.exheading{
+  margin-top: 40px;
+  font-size: 30px;
+}
+
+table{
+  width: 100%;
+  font-size:20px;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+table.center {
+  margin-left: auto; 
+  margin-right: auto;
+}
+table td{
+  padding:8px 0px 8px 10px;
 }
