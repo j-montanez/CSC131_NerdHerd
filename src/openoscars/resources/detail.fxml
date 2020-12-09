@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="detailPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="openoscars.DetailController">
+<BorderPane fx:id="detailPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="openoscars.DetailController">
     <center>
         <GridPane fx:id="gridPane" alignment="CENTER">
             <columnConstraints>
@@ -19,58 +19,34 @@
                 <ColumnConstraints percentWidth="33.3" />
                 <ColumnConstraints percentWidth="33.3" />
             </columnConstraints>
-         <rowConstraints>
-            <RowConstraints />
-         </rowConstraints>
          <children>
-            <VBox alignment="CENTER">
+            <VBox alignment="CENTER" GridPane.columnIndex="0" fx:id="vBoxPoster">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@imgs/tempMovies/joker.jpg" />
-                     </image>
-                  </ImageView>
+                  <ImageView preserveRatio="true" fx:id="posterDetails"/>
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+            <VBox alignment="CENTER" GridPane.columnIndex="1" maxWidth="Infinity">
                <children>
-                  <Label text="Movie Title" />
-                  <Label text="2019 (Genre)" />
-                  <Label text="Movie Details" />
-                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                     <content>
-                        <Label text="Label" />
-                     </content>
-                  </ScrollPane>
+                  <Label fx:id="movieTitleDetails"/>
+                  <Label fx:id="yearGenreDetails" />
+                   <Label fx:id="imdbRatingAndVotesDetails" />
+                   <Label  fx:id="metaCriticScoreDetails" />
+                   <Label  fx:id="awardsWonDetails" />
+                  <Label text="Movie Details"/>
+                  <ScrollPane fx:id="plotDetailsScrollpane" />
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
+            <VBox alignment="CENTER" GridPane.columnIndex="2"  maxWidth="Infinity">
                <children>
-                  <Label text="Ratings: " />
-                  <Label text="Awards:" />
-                  <Label text="Cast" />
-                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
-                           <children>
-                              <Label text="Director" />
-                              <VBox prefHeight="200.0" prefWidth="100.0">
-                                 <children>
-                                    <Label text="Label" />
-                                 </children>
-                              </VBox>
-                              <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0">
-                                 <children>
-                                    <Label text="Label" />
-                                 </children>
-                              </VBox>
-                           </children>
-                        </AnchorPane>
-                    </content>
+                   <Label text="Cast and Crew"/>
+                  <ScrollPane fx:id="castDetailsScrollPane">
+                      <content>
+                          <Label fx:id="castDetails"/>
+                      </content>
                   </ScrollPane>
-                  <ImageView fitHeight="36.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView preserveRatio="true" fitWidth="128" fx:id="imdbLink">
                      <image>
-                        <Image url="@imgs/IMDb.png" />
+                        <Image url="@imgs/IMDb.png"/>
                      </image>
                   </ImageView>
                </children>

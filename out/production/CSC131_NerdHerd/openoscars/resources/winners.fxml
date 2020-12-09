@@ -13,28 +13,13 @@
 <?import javafx.scene.control.Button?>
 
 <BorderPane fx:id="winnersPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="openoscars.MovieCardFactoryController">
-    <top>
-        <VBox alignment="CENTER">
-            <Label text="Previous Winners" />
-            <Label text="2019" />
-        </VBox>
-    </top>
-    <center>
-        <GridPane alignment="CENTER" fx:id="gridPane">
-            <columnConstraints>
-                <ColumnConstraints percentWidth="33.3" />
-                <ColumnConstraints percentWidth="33.3" />
-                <ColumnConstraints percentWidth="33.3" />
-            </columnConstraints>
-        </GridPane>
-    </center>
     <left>
         <VBox alignment="CENTER_LEFT">
-            <Button>
+            <Button onMouseClicked="#prevPage">
                 <graphic>
                     <ImageView fitHeight="20.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@imgs/prev.png" />
+                            <Image url="@imgs/prev.png"/>
                         </image>
                     </ImageView>
                 </graphic>
@@ -43,11 +28,11 @@
     </left>
     <right>
         <VBox alignment="CENTER_RIGHT">
-            <Button>
+            <Button onMouseClicked="#nextPage">
                 <graphic>
                     <ImageView fitHeight="20.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@imgs/next.png" />
+                            <Image url="@imgs/next.png"/>
                         </image>
                     </ImageView>
                 </graphic>

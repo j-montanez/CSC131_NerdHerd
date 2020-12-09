@@ -1,5 +1,24 @@
 /* This is where the CSS will go to style the scenes */
-.button{
-    -fx-background-color:green;
-    -fx-text-fill: white;
+
+
+.root
+{
+    -fx-background-color: rgb(234, 232, 228);
+    -fx-text-fill: rgb(0, 0, 0);
+}
+.button
+{
+    -fx-background-color: rgb(189, 155, 22);
+    -fx-border-color: rgb(0, 0, 0);
+    -fx-text-fill: rgb(0, 0, 0);
+}
+.text
+{
+    -fx-text-fill: rgb(0, 0, 0);
+    -fx-font-size: 10pt;
+
+}
+.label
+{
+    -fx-text-fill: rgb(0, 0, 0);
 }
