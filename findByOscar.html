@@ -17,10 +17,10 @@
 					<hr>
 
 					<div class="sidenav">
-						<a class="active">findByName</a>
-						<a href="index.html">findByOscar</a>
-						<a href="about.html">findByAwards</a>
-						<a href="about.html">findByYear</a>
+						<a href = "findByName.html">findByName</a>
+						<a class="active">findByOscar</a>
+						<a href="findByAwards.html">findByAwards</a>
+						<a href="findAllByYear.html">findAllByYear</a>
 					</div>
 				</p>
 
@@ -35,15 +35,15 @@
 			<div class = "container">
 				
 				<div class = "findheading">
-					findByName
+					findByOscar
 				</div>
 					<div class = "explain"> 
-						Search for movies by name
+						Search for movies that have won in a given Oscar catergory
 					<hr>
 					</div>
 
 					<div class = "get">
-						GET /findByName?name={movie title}
+						GET /findByOscar?name={oscar category}
 					</div>
 					<div class = "commandline">
 						<hr>
@@ -53,7 +53,7 @@
 
 				
 					<div class ="paramtitle">
-					For {movie title} to be valid: <br>
+					For {oscar category} to be valid: <br>
 				</div>
 				<div class = "parameters">
 					-The complete title must be entered <br>
@@ -67,29 +67,29 @@
 					</div>
 					<table class="center">
 					  <tr>
-					    <th>Movie Title</th>
+					    <th>Oscar Category</th>
 					    <th>Output</th>
 					    <th>Request</th>
 					  </tr>
 					  <tr>
-					    <td>Parasite</td>
+					    <td>Picture</td>
 					    <td>i dont know what the output looks like</td>
-					    <td>http://localhost:8080/demo/findByName?name=Parasite</td>
+					    <td>http://localhost:8080/demo/findByOscar?name=Picture</td>
 					  </tr>
 					  <tr>
-					    <td>star wars</td>
+					    <td>Song</td>
 					    <td>i dont know what the output looks like</td>
-					    <td>http://localhost:8080/demo/findByName?name=star%20wars</td>
+					    <td>http://localhost:8080/demo/findByOscar?name=Song</td>
 					  </tr>
 					  <tr>
-					    <td>Star Wars: Episode IV - A New Hope</td>
+					    <td>Director</td>
 					    <td>i dont know what the output looks like</td>
-					    <td>http://localhost:8080/demo/findByName?name=Star%20Wars:%20Episode%20IV%20-%20A%20New%20Hope</td>
+					    <td>http://localhost:8080/demo/findByOscar?name=Director</td>
 					  </tr>
 					  <tr>
-					    <td>La La Land</td>
+					    <td>Fail Example</td>
 					    <td>i dont know what the output looks like</td>
-					    <td>http://localhost:8080/demo/findByName?name=La%20La%20Land</td>
+					    <td>http://localhost:8080/demo/findByOscar?name=PLACEHOLDER</td>
 					  </tr>
 					</table>
 				</div>
