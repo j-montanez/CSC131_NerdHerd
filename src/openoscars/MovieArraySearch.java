@@ -15,6 +15,7 @@ public class MovieArraySearch {
 	static private List<String> yup = new ArrayList<String>();
 	
 	public MovieArraySearch(String key) {
+		System.out.println("Key: " + key);
 		getSpringYear(key);
 	}
 	
@@ -24,7 +25,6 @@ public class MovieArraySearch {
 		client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
 				.thenApply(HttpResponse::body)
 				.thenAccept(MovieArraySearch::parse)
-				// Parse is not called. WHY?!
 				.join();
 	}
 	//takes the JSON file and puts the awards into String list
@@ -35,8 +35,8 @@ public class MovieArraySearch {
 		
 			for(int i = 0; i<jarray.length();i++) {
 				 JSONObject movie = jarray.getJSONObject(i);
+				 System.out.println("movie: " + movie);
 				 String newTitle = movie.getString("title");
-				 System.out.println("Last " + last + " newTitle " + newTitle + " Two Ago: " + twoAgo);
 				 if(i==0){
 					 String Title = movie.getString("title");
 					 yup.add(Title);
@@ -50,11 +50,11 @@ public class MovieArraySearch {
 					 MovieNS ugh = new MovieNS(mv);
 					 Movies.add(ugh);
 				 }
-				 if(i%2 == 0){
-					 last = movie.getString("title");
-				 }else{
-					 twoAgo = movie.getString("title");
-				 }
+					if(i%2 == 0){
+						last = movie.getString("title");
+					}else{
+						twoAgo = movie.getString("title");
+					}
 
 			}	 			
 	}

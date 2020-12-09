@@ -34,7 +34,7 @@
          </HBox>
          <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
             <children>
-                  <TextField alignment="CENTER_RIGHT" />
+                  <TextField alignment="CENTER_RIGHT" fx:id="searchBox"/>
                   <Button text="Search" onAction="#navigateSearch"/>
                   <Button alignment="CENTER_RIGHT" text="Account" onAction="#popupAccount"/>
                   <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="Settings" onAction="#navigateSettings" />

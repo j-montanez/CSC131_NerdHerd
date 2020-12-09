@@ -29,7 +29,7 @@
     </center>
     <left>
         <VBox alignment="CENTER_LEFT">
-            <Button>
+            <Button onMouseClicked="#prevPage">
                 <graphic>
                     <ImageView fitHeight="20.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
                         <image>
@@ -42,7 +42,7 @@
     </left>
     <right>
         <VBox alignment="CENTER_RIGHT">
-            <Button>
+            <Button onMouseClicked="#nextPage">
                 <graphic>
                     <ImageView fitHeight="20.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
                         <image>

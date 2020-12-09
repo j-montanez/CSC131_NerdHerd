@@ -30,13 +30,15 @@ public class MovieArray {
 	//takes the JSON file and puts the awards into String list
 	public static void parse(String responseBody) {
 		JSONArray jarray = new JSONArray(responseBody);
-		
+
 			for(int i = 0; i<jarray.length();i++) {
 				 JSONObject movie = jarray.getJSONObject(i);
 				 String Title = movie.getString("title");
 				 yup.add(Title);
 				 MovieObj mv = new MovieObj(Title);
 				 MovieNS ugh = new MovieNS(mv);
+
+
 				 Movies.add(ugh);				 
 			}	 			
 	}

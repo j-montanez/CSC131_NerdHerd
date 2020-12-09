@@ -1,11 +1,14 @@
 package openoscars;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
@@ -21,9 +24,6 @@ import java.util.ResourceBundle;
 
 
 public class MovieCardFactoryController implements Initializable {
-
-    @FXML
-    public GridPane gridPane;
 
     @FXML
     public BorderPane winnersPane;
@@ -42,43 +42,183 @@ public class MovieCardFactoryController implements Initializable {
 
     // global
     public static int index = 0;
+    public static String yearGlobal = "2019";
+    public static List<MovieNS> movies = null;
+    public GridPane gridPane;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        MovieArray mv = new MovieArray(1957);
+        if(!(winnersPane == null)){
+            addComboBox();
+            getMovieByYear(Integer.parseInt(yearGlobal));
+            cardGrid(createGrid());
+            System.out.println("index+=6 " + index + " : " + movies.size());
+        }
+        if(!(nominatePane == null)){
+            getMovieByYear(Integer.parseInt(yearGlobal));
+            cardGrid(createGrid());
+            System.out.println("index+=6 " + index + " : " + movies.size());
+        }
+        if(!(votePane == null)){
+            getMovieByYear(Integer.parseInt(yearGlobal));
+            cardGrid(createGrid());
+            System.out.println("index+=6 " + index + " : " + movies.size());
+        }
+        if(!(searchPane == null)){
+           System.out.println("User.getSearch() " + User.getSearch());
+           getMovieBySearch(User.getSearch());
+//            System.out.println(movies.get(index).getTitle());
+           cardGrid(createGrid());
+           System.out.println("index+=6 " + index + " : " + movies.size());
+
+        }
+    }
+
+    public void getMovieBySearch(String search){
+        MovieArraySearch mv = new MovieArraySearch(search);
+//        System.out.println(mv);
         List<MovieNS> movies = mv.getMovies();
+//        System.out.println(movies);
         List<String> tit = mv.getYup();
+//        System.out.println(tit);
+//        System.out.println("Elements in movies: " + movies.size());
+//        System.out.println("Elements in movies: " + movies.get(1));
+    }
+
+    public void getMovieByYear(int year){
+        MovieArray mv = new MovieArray(year);
+        movies = mv.getMovies();
+        List<String> tit = mv.getYup();
+        System.out.println("Elements in movies: " + movies.size());
+    }
+
+    public void addComboBox(){
+        final ComboBox<String> yearComboBox = new ComboBox<>();
+        for(int i = 2020; i>=1927; i--){
+            yearComboBox.getItems().add(Integer.toString(i));
+        }
+        yearComboBox.setEditable(false);
+        yearComboBox.setValue(Integer.toString(2019));
+        if(winnersPane != null) {
+            winnersPane.setTop(yearComboBox);
+        } else if(nominatePane != null) {
+            nominatePane.setTop(yearComboBox);
+        } else if(votePane != null) {
+            votePane.setTop(yearComboBox);
+        } else if(searchPane != null) {
+            searchPane.setTop(yearComboBox);
+        }
+        yearComboBox.valueProperty().addListener(new ChangeListener<String>() {
+            @Override public void changed(ObservableValue ov, String t, String t1) {
+                yearGlobal = t1;
+                System.out.println(yearGlobal);
+                getMovieByYear(Integer.parseInt(yearGlobal));
+
+//            //     Test for MovieArray
+//        for(int i = 0; i<movies.size();i++) {
+//            System.out.println("Index: " + i + " Title:" + movies.get(i).getTitle());
+//        }
+                //clear old
+                GridPane gridPane = createGrid();
+                if(winnersPane != null) {
+//            winnersPane.setCenter(null);
+                    System.out.println("In winner pane clear");
+                    winnersPane.setCenter(null);
+                } else if(nominatePane != null) {
+//            nominatePane.setCenter(null);
+                    nominatePane.setCenter(null);
+                } else if(votePane != null) {
+//            votePane.setCenter(null);
+                    votePane.setCenter(null);
+                } else if(searchPane != null) {
+//            searchPane.setCenter(null);
+                    searchPane.setCenter(null);
+                }
+
+                index = 0;
+                cardGrid(createGrid());
+                System.out.println("index+=6 " + index + " : " + movies.size());
+            }
+        });
+
+
+    }
+
+    public void cardGrid(GridPane gridPane){
         for (int j=0;j<2;j++) {             // rows
             for (int i=0;i<3;i++) {         // columns
-                createCard(j,i,movies.get(index).getTitle(),"category",movies.get(index).getPoster(),movies.get(index).getPlot());
-                index++;
+                if(movies.get(index) != null){
+//                        System.out.println(movies.get(index));
+                        System.out.println(movies.get(index).getTitle() + "movies.get(index) != null");
+                    createCard(j,i,movies.get(index).getTitle(),"category",movies.get(index).getPoster(),movies.get(index).getPlot(), gridPane);
+                    index++;
+//                    System.out.println("CardGrid Current index: " + index);
+                }
 //                System.out.println(index + " " + movies.get(index).getTitle() + " " + movies.get(index).getPoster() + " " + movies.get(index).getPlot());
 
             }
 
 
-        }
 
+        }
     }
 
+        public GridPane createGrid(){
 
-        public void createCard(int row, int column, String titleIn, String categoryIn, String posterIn, String plotIn) {
+//            System.out.println("Grid Creation top index: " + index);
+            GridPane gridPane = new GridPane();
+            ColumnConstraints col1 = new ColumnConstraints();
+            col1.setPercentWidth(33.3);
+            ColumnConstraints col2 = new ColumnConstraints();
+            col2.setPercentWidth(33.3);
+            ColumnConstraints col3 = new ColumnConstraints();
+            col3.setPercentWidth(33.3);
+            gridPane.getColumnConstraints().addAll(col1,col2,col3);
+            gridPane.setAlignment(Pos.CENTER);
+
+            if(winnersPane != null) {
+//            winnersPane.setCenter(null);
+                winnersPane.setCenter(gridPane);
+            } else if(nominatePane != null) {
+//            nominatePane.setCenter(null);
+                nominatePane.setCenter(gridPane);
+            } else if(votePane != null) {
+//            votePane.setCenter(null);
+                votePane.setCenter(gridPane);
+            } else if(searchPane != null) {
+//            searchPane.setCenter(null);
+                searchPane.setCenter(gridPane);
+            }
+
+            System.out.println("Grid Creation bottom index: " + index);
+//            System.out.println("Movies: " + movies.get(index));
+            return gridPane;
+        }
+
+        public void createCard(int row, int column, String titleIn, String categoryIn, String posterIn, String plotIn, GridPane gridPane) {
 
         // Variables
-
+//            System.out.println("Card Creation top index: " + index);
         // Card Creation
         HBox card = new HBox();
         card.setMaxWidth(Region.USE_COMPUTED_SIZE);
         gridPane.add(card, column, row);
+        Image poster;
 
         // Poster
-        Image poster = new Image(posterIn);
-        if(poster.isError()) {
+        if(!posterIn.contains("http")){
             File noImg = new File("/src/openoscars/resources/imgs/noimage.png");
             String absolute = System.getProperty("user.dir") + noImg ;
-            poster = new Image("file:" + absolute); // Find out why this doesn't display
-//            System.out.println(poster);
+            poster = new Image("file:" + absolute);
+        } else {
+            poster = new Image(posterIn);
         }
+        if(poster.isError()){
+            File noImg = new File("/src/openoscars/resources/imgs/noimage.png");
+            String absolute = System.getProperty("user.dir") + noImg ;
+            poster = new Image("file:" + absolute);
+        }
+
         ImageView iv = new ImageView();
         iv.setImage(poster);
         iv.setPreserveRatio(false);
@@ -109,10 +249,14 @@ public class MovieCardFactoryController implements Initializable {
         card.getChildren().add(iv);
         card.getChildren().add(details);
         card.setAlignment(Pos.CENTER);
+//        System.out.println("Card Creation bottom index: " + index);
+
+
 
         iv.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
+//                System.out.println("Mouse event click index: " + index );
                 Pane view = null;
                 try {
                     view = FXMLLoader.load(getClass().getResource("resources/detail.fxml"));
@@ -141,6 +285,8 @@ public class MovieCardFactoryController implements Initializable {
                         searchPane.setRight(null);
                     }
 
+//                System.out.println("Mouse event bottom index: " + index );
+
 
             }
         });
@@ -150,15 +296,56 @@ public class MovieCardFactoryController implements Initializable {
     public void nextPage(MouseEvent mouseEvent) {
         //Next: figure out why mouse event doesn't trigger
         System.out.println("in next button");
-        // clear out the old cards
-        gridPane.getChildren().removeAll();
+        if(index<movies.size()-5){
+//            index+=1;
+            System.out.println("index+=6 " + index + " : " + movies.size());
+
+            GridPane gridPane = createGrid();
+            if(winnersPane != null) {
+//            winnersPane.setCenter(null);
+                winnersPane.setCenter(gridPane);
+            } else if(nominatePane != null) {
+//            nominatePane.setCenter(null);
+                nominatePane.setCenter(gridPane);
+            } else if(votePane != null) {
+//            votePane.setCenter(null);
+                votePane.setCenter(gridPane);
+            } else if(searchPane != null) {
+//            searchPane.setCenter(null);
+                searchPane.setCenter(gridPane);
+            }
+
+            cardGrid(gridPane);
+            System.out.println("Next page bottom index: " + index );
+        }
+
     }
 
     @FXML
     public void prevPage(MouseEvent mouseEvent) {
-        //Next: figure out why mouse event doesn't trigger
         System.out.println("in prev button");
-        // clear out the old cards
-        gridPane.getChildren().removeAll();
+        if(index>=12){
+            index-=12;
+            System.out.println("index-=12 " + index + " : " + movies.size());
+
+            GridPane gridPane = createGrid();
+            if(winnersPane != null) {
+//            winnersPane.setCenter(null);
+                winnersPane.setCenter(gridPane);
+            } else if(nominatePane != null) {
+//            nominatePane.setCenter(null);
+                nominatePane.setCenter(gridPane);
+            } else if(votePane != null) {
+//            votePane.setCenter(null);
+                votePane.setCenter(gridPane);
+            } else if(searchPane != null) {
+//            searchPane.setCenter(null);
+                searchPane.setCenter(gridPane);
+            }
+
+            cardGrid(gridPane);
+            System.out.println("Next page bottom index: " + index );
+        }
+
     }
 }

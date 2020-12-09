@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.*;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -55,6 +56,8 @@ public class Controller implements Initializable {
     public RadioButton darkModeThemeSelector;
     @FXML
     public HBox navBar;
+    @FXML
+    public TextField searchBox;
 
     @FXML
     private BorderPane loginPane;
@@ -191,6 +194,7 @@ public class Controller implements Initializable {
 
     @FXML
     private void navigateSearch(ActionEvent event){
+        User.setSearch(searchBox.getText());
         Pane view = null;
         try {
             view = FXMLLoader.load(getClass().getResource("resources/search.fxml"));
