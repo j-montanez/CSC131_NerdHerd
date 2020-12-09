@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <BorderPane fx:id="loginPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="openoscars.Controller">
    <center>
-      <VBox alignment="CENTER" spacing="15.0" BorderPane.alignment="TOP_CENTER">
+      <VBox alignment="CENTER" spacing="15.0" BorderPane.alignment="TOP_CENTER" fx:id="vboxAccount">
          <children>
             <ImageView fitWidth="300" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -23,7 +23,7 @@
             <HBox alignment="CENTER">
                <Label fx:id="userEmail" wrapText="true"/>
             </HBox>
-            <VBox>
+            <VBox spacing="25">
                <children>
                   <Button alignment="CENTER" maxWidth="Infinity" mnemonicParsing="false" text="Sign Out" onAction="#logoutButton" fx:id="signOutButton"/>
                   <Button alignment="CENTER" maxWidth="Infinity" mnemonicParsing="false" text="Back" onAction="#logoutBackButton" fx:id="backButton"/>

@@ -20,31 +20,31 @@
                         <Image url="@imgs/OpenOscarsWordmark.png" />
                     </image>
                 </ImageView>
-                <Label text="was created by" />
+                <Label text="was created by" fx:id="createdBy"/>
                 <ImageView fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@imgs/NERDHERD_inline_black.png" />
                     </image>
                 </ImageView>
-                <HBox prefHeight="100.0" prefWidth="200.0" alignment="CENTER">
+                <HBox prefHeight="100.0" prefWidth="200.0" alignment="CENTER" spacing="50">
                     <children>
-                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                        <VBox alignment="TOP_CENTER">
                             <children>
-                                <Label text="Jose Montanez" />
-                                <Label text="Evelyn Pikalov" />
-                                <Label text="Skyler Rader" />
+                                <Label text="Jose Montanez"  fx:id="Jose"/>
+                                <Label text="Evelyn Pikalov"  fx:id="Evelyn"/>
+                                <Label text="Skyler Rader"  fx:id="Skyler"/>
                             </children>
                         </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                        <VBox alignment="TOP_CENTER">
                             <children>
-                                <Label text="Alex Smith" />
-                                <Label text="Steven Tran" />
-                                <Label text="Phuc Truong" />
+                                <Label text="Alex Smith"  fx:id="Alex"/>
+                                <Label text="Steven Tran"  fx:id="Steven"/>
+                                <Label text="Phuc Truong"  fx:id="Phuc"/>
                             </children>
                         </VBox>
                     </children>
                 </HBox>
-                <Button mnemonicParsing="false" text="Learn More" onAction="#navigateWebsite"/>
+                <Button mnemonicParsing="false" text="Learn More" onAction="#navigateWebsite" fx:id="website"/>
             </children>
         </VBox>
     </center>

@@ -1,7 +1,5 @@
 package openoscars;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,13 +10,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.*;
 import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import java.awt.*;
@@ -58,6 +53,31 @@ public class Controller implements Initializable {
     public HBox navBar;
     @FXML
     public TextField searchBox;
+    public Button toRegister;
+    public Button toSignin;
+    public Button signInButton;
+    public Hyperlink forgotPassword;
+    public Label agreeText;
+    public Hyperlink tosHyper;
+    public Button joinButton;
+    public Button homeButton;
+    public Button winnersButton;
+    public Button nominateButton;
+    public Button voteButton;
+    public Button searchButton;
+    public Button accountButton;
+    public Button settingsButton;
+    public Label welcomeHeader;
+    public Label welcomeBody;
+    public Label createdBy;
+    public Label Jose;
+    public Label Evelyn;
+    public Label Skyler;
+    public Label Alex;
+    public Label Steven;
+    public Label Phuc;
+    public Button website;
+    public VBox vboxAccount;
 
     @FXML
     private BorderPane loginPane;
@@ -85,19 +105,18 @@ public class Controller implements Initializable {
     @FXML
     private PasswordField loginPassword;
 
-    @FXML
-    public void refreshSettingsPane () throws IOException {
-        Pane view = null;
-        try {
-            view = FXMLLoader.load(getClass().getResource("resources/settings.fxml"));
-            view.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        settingsPane.setCenter(view);
-
-
-    }
+    // More deprecated settings stuff.
+//    @FXML
+//    public void refreshSettingsPane () throws IOException {
+//        Pane view = null;
+//        try {
+//            view = FXMLLoader.load(getClass().getResource("resources/settings.fxml"));
+//            view.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        settingsPane.setCenter(view);
+//    }
 
 
 
@@ -108,33 +127,34 @@ public class Controller implements Initializable {
             String email = user.getEmail();
             userEmail.setText(email);
         }
-        if(settingsPane != null){
-            try {
-                styleToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
-                    @Override
-                    public void changed(ObservableValue<? extends Toggle> ob,
-                                        Toggle o, Toggle n)
-                    {
-
-
-                        RadioButton rb = (RadioButton)styleToggleGroup.getSelectedToggle();
-
-                        if (rb != null) {
-                            if (rb == darkModeThemeSelector){
-                                System.out.println(settingsPane.getStylesheets());
-                                settingsPane.getStylesheets().clear();
-                                User.setTheme("resources/darkmode.css");
-                                settingsPane.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
-
-
-                            }
-                        }
-                    }
-                });
-            } catch (NullPointerException e) {
-                System.out.println("Null Pointer");
-            }
-        }
+        // Settings was abandoned due to lack of time.
+//        if(settingsPane != null){
+//            try {
+//                styleToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+//                    @Override
+//                    public void changed(ObservableValue<? extends Toggle> ob,
+//                                        Toggle o, Toggle n)
+//                    {
+//
+//
+//                        RadioButton rb = (RadioButton)styleToggleGroup.getSelectedToggle();
+//
+//                        if (rb != null) {
+//                            if (rb == darkModeThemeSelector){
+//                                System.out.println(settingsPane.getStylesheets());
+//                                settingsPane.getStylesheets().clear();
+//                                User.setTheme("resources/darkmode.css");
+//                                settingsPane.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
+//
+//
+//                            }
+//                        }
+//                    }
+//                });
+//            } catch (NullPointerException e) {
+//                System.out.println("Null Pointer");
+//            }
+//        }
     }
 
     // Navigation Button Handling
@@ -217,11 +237,12 @@ public class Controller implements Initializable {
         homePane.setCenter(view);
     }
 
+//  This goes to About now, and not settings. Settings was abandoned.
     @FXML
     private void navigateSettings(ActionEvent event){
         Pane view = null;
         try {
-            view = FXMLLoader.load(getClass().getResource("resources/settings.fxml"));
+            view = FXMLLoader.load(getClass().getResource("resources/about.fxml"));
             view.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
         } catch (IOException e) {
             e.printStackTrace();
@@ -231,17 +252,17 @@ public class Controller implements Initializable {
 
     }
 
-    @FXML
-    private void navigateAbout(ActionEvent event){
-        Pane view = null;
-        try {
-            view = FXMLLoader.load(getClass().getResource("resources/about.fxml"));
-            view.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        settingsPane.setCenter(view);
-    }
+//    @FXML
+//    private void navigateAbout(ActionEvent event){
+//        Pane view = null;
+//        try {
+//            view = FXMLLoader.load(getClass().getResource("resources/about.fxml"));
+//            view.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        settingsPane.setCenter(view);
+//    }
 
     @FXML
     private void navigateRegister(ActionEvent event){
