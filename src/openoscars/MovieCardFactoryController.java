@@ -45,6 +45,16 @@ public class MovieCardFactoryController implements Initializable {
     public static String yearGlobal = "2018";
     public static List<MovieNS> movies = null;
     public GridPane gridPane;
+    public Button prevArrowWinners;
+    public Button nextArrowWinners;
+    public Button prevArrowNominate;
+    public Button nextArrowNominate;
+    public Button prevArrowVote;
+    public Button nextArrowVote;
+    public Button prevArrowSearch;
+    public Button nextArrowSearch;
+    public Label nominateText;
+    public Label voteTextLabel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -96,14 +106,28 @@ public class MovieCardFactoryController implements Initializable {
         }
         yearComboBox.setEditable(false);
         yearComboBox.setValue(Integer.toString(2018));
+        VBox yearComboBoxHolder = new VBox();
+        Label winnerText = new Label("Past Winners");
+        winnerText.setId("winnerTextLabel");
+        HBox container = new HBox();
+        Label selectYear = new Label("Select Year");
+        selectYear.setId("selectYearLabel");
+        container.getChildren().add(selectYear);
+        container.getChildren().add(yearComboBox);
+        container.setAlignment(Pos.CENTER);
+        container.setSpacing(10);
+
+        yearComboBoxHolder.setAlignment(Pos.CENTER);
+        yearComboBoxHolder.getChildren().add(winnerText);
+        yearComboBoxHolder.getChildren().add(container);
         if(winnersPane != null) {
-            winnersPane.setTop(yearComboBox);
+            winnersPane.setTop(yearComboBoxHolder);
         } else if(nominatePane != null) {
-            nominatePane.setTop(yearComboBox);
+            nominatePane.setTop(yearComboBoxHolder);
         } else if(votePane != null) {
-            votePane.setTop(yearComboBox);
+            votePane.setTop(yearComboBoxHolder);
         } else if(searchPane != null) {
-            searchPane.setTop(yearComboBox);
+            searchPane.setTop(yearComboBoxHolder);
         }
         yearComboBox.valueProperty().addListener(new ChangeListener<String>() {
             @Override public void changed(ObservableValue ov, String t, String t1) {
@@ -157,6 +181,8 @@ public class MovieCardFactoryController implements Initializable {
             col3.setPercentWidth(33.3);
             gridPane.getColumnConstraints().addAll(col1,col2,col3);
             gridPane.setAlignment(Pos.CENTER);
+            gridPane.setHgap(50);
+            gridPane.setVgap(35);
 
             if(winnersPane != null) {
 //            winnersPane.setCenter(null);
@@ -183,36 +209,44 @@ public class MovieCardFactoryController implements Initializable {
 //            System.out.println("Card Creation top index: " + index);
         // Card Creation
         HBox card = new HBox();
+        card.setId("mainCard");
         card.setMaxWidth(Region.USE_COMPUTED_SIZE);
+        card.setSpacing(20);
         gridPane.add(card, column, row);
-        Image poster;
+            final Image[] poster = new Image[1];
 
         // Poster
         if(!posterIn.contains("http")){
             File noImg = new File("/src/openoscars/resources/imgs/noimage.png");
             String absolute = System.getProperty("user.dir") + noImg ;
-            poster = new Image("file:" + absolute);
+            poster[0] = new Image("file:" + absolute);
         } else {
-            poster = new Image(posterIn);
+            poster[0] = new Image(posterIn);
         }
-        if(poster.isError()){
+        if(poster[0].isError()){
             File noImg = new File("/src/openoscars/resources/imgs/noimage.png");
             String absolute = System.getProperty("user.dir") + noImg ;
-            poster = new Image("file:" + absolute);
+            poster[0] = new Image("file:" + absolute);
         }
 
         ImageView iv = new ImageView();
-        iv.setImage(poster);
+        iv.setId("smallPoster");
+        iv.setImage(poster[0]);
         iv.setPreserveRatio(false);
         iv.setFitHeight(197.0);
         iv.setFitWidth(125.0);
         iv.setCache(true);
 
+
         // Details side of card
         VBox details = new VBox();
+        details.setAlignment(Pos.CENTER);
         Label title = new Label(titleIn);
+        title.setId("titleCard");
         Label category = new Label(categoryIn);
+        category.setId("categoryCard");
         ScrollPane detailsPane = new ScrollPane();
+        detailsPane.setId("scrollPaneCard");
         detailsPane.setPrefSize(250,130);
         Label description = new Label(plotIn);
         description.setWrapText(true);
@@ -238,7 +272,24 @@ public class MovieCardFactoryController implements Initializable {
         iv.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-//                System.out.println("Mouse event click index: " + index );
+                // find movie object. Send to user
+                File noImg = new File("/src/openoscars/resources/imgs/noimage.png");
+                String absolute = System.getProperty("user.dir") + noImg ;
+                poster[0] = new Image("file:" + absolute);
+                for(int i = 0; i < 7; i++){
+                    if (movies.get(index-i).getPoster().equals( iv.getImage().getUrl())){
+                        User.setCurrentMovie(movies.get(index-i));
+                        System.out.println(movies.get(index-i).getTitle());
+                    } else if (movies.get(index-i).getPoster().equals(poster[0].getUrl())){
+                        User.setCurrentMovie(movies.get(index-i));
+                        System.out.println(movies.get(index-i).getTitle());
+                    } else {
+                        System.out.println("Not found");
+                    }
+                }
+
+
+                // display the detail page
                 Pane view = null;
                 try {
                     view = FXMLLoader.load(getClass().getResource("resources/detail.fxml"));
@@ -267,7 +318,6 @@ public class MovieCardFactoryController implements Initializable {
                         searchPane.setRight(null);
                     }
 
-//                System.out.println("Mouse event bottom index: " + index );
 
 
             }
@@ -276,8 +326,6 @@ public class MovieCardFactoryController implements Initializable {
 
     @FXML
     public void nextPage(MouseEvent mouseEvent) {
-        //Next: figure out why mouse event doesn't trigger
-        System.out.println("in next button");
         if(index<movies.size()-5){
 //            index+=1;
             System.out.println("index+=6 " + index + " : " + movies.size());

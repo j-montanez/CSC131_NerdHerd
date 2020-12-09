@@ -11,7 +11,13 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.layout.HBox?>
 <BorderPane fx:id="detailPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="openoscars.DetailController">
+    <top>
+        <HBox alignment="CENTER">
+            <Label fx:id="movieTitleDetails"/>
+        </HBox>
+    </top>
     <center>
         <GridPane fx:id="gridPane" alignment="CENTER">
             <columnConstraints>
@@ -27,21 +33,21 @@
             </VBox>
             <VBox alignment="CENTER" GridPane.columnIndex="1" maxWidth="Infinity">
                <children>
-                  <Label fx:id="movieTitleDetails"/>
-                  <Label fx:id="yearGenreDetails" />
+                  <Label fx:id="yearGenreDetails" wrapText="true"/>
                    <Label fx:id="imdbRatingAndVotesDetails" />
                    <Label  fx:id="metaCriticScoreDetails" />
-                   <Label  fx:id="awardsWonDetails" />
-                  <Label text="Movie Details"/>
-                  <ScrollPane fx:id="plotDetailsScrollpane" />
+
+<!--                   <Label  fx:id="awardsWonDetails" />-->
+                  <Label text="Movie Details" fx:id="movieDetailsText"/>
+                  <ScrollPane fx:id="plotDetailsScrollpane" GridPane.valignment="CENTER"/>
                </children>
             </VBox>
             <VBox alignment="CENTER" GridPane.columnIndex="2"  maxWidth="Infinity">
                <children>
-                   <Label text="Cast and Crew"/>
+                   <Label text="Cast and Crew" fx:id="castAndCrew"/>
                   <ScrollPane fx:id="castDetailsScrollPane">
                       <content>
-                          <Label fx:id="castDetails"/>
+                          <Label fx:id="castDetails" maxWidth="Infinity"/>
                       </content>
                   </ScrollPane>
                   <ImageView preserveRatio="true" fitWidth="128" fx:id="imdbLink">

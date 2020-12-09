@@ -15,7 +15,7 @@
 <BorderPane fx:id="searchPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="openoscars.MovieCardFactoryController">
     <top>
         <VBox alignment="CENTER">
-            <Label text="Search Results" />
+            <Label text="Search Results" fx:id="searchText"/>
         </VBox>
     </top>
     <center>
@@ -29,7 +29,7 @@
     </center>
     <left>
         <VBox alignment="CENTER_LEFT">
-            <Button onMouseClicked="#prevPage">
+            <Button onMouseClicked="#prevPage" fx:id="prevArrowSearch">
                 <graphic>
                     <ImageView fitHeight="20.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
                         <image>
@@ -42,7 +42,7 @@
     </left>
     <right>
         <VBox alignment="CENTER_RIGHT">
-            <Button onMouseClicked="#nextPage">
+            <Button onMouseClicked="#nextPage" fx:id="nextArrowSearch">
                 <graphic>
                     <ImageView fitHeight="20.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
                         <image>

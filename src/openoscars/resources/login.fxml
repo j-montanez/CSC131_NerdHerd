@@ -21,8 +21,8 @@
             <ColumnConstraints percentWidth="50" />
          </columnConstraints>
          <children>
-            <Button maxWidth="Infinity" mnemonicParsing="false" text="Create Account" GridPane.columnIndex="0" GridPane.rowIndex="0" onAction="#navigateRegister"/>
-            <Button maxWidth="Infinity" mnemonicParsing="false" text="Sign in" GridPane.columnIndex="1" GridPane.rowIndex="0" onAction="#navigateLogin" />
+            <Button maxWidth="Infinity" mnemonicParsing="false" text="Create Account" GridPane.columnIndex="0" GridPane.rowIndex="0" onAction="#navigateRegister" fx:id="toRegister"/>
+            <Button maxWidth="Infinity" mnemonicParsing="false" text="Sign in" GridPane.columnIndex="1" GridPane.rowIndex="0" onAction="#navigateLogin"  fx:id="toSignin"/>
          </children>
          <rowConstraints>
             <RowConstraints />
@@ -42,8 +42,8 @@
             <PasswordField promptText="Password" fx:id="loginPassword"/>
             <VBox>
                <children>
-                  <Button alignment="CENTER" maxWidth="Infinity" mnemonicParsing="false" text="Sign In" onAction="#loginButton"/>
-                  <Hyperlink text="Forgot Password?" />
+                  <Button alignment="CENTER" maxWidth="Infinity" mnemonicParsing="false" text="Sign In" onAction="#loginButton" fx:id="signInButton"/>
+                  <Hyperlink text="Forgot Password?" fx:id="forgotPassword"/>
                </children>
             </VBox>
          </children>

@@ -27,6 +27,9 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("resources/login.fxml"));
+//        File font = new File("/src/openoscars/resources/font/Poppins-Light.ttf");
+//        String absolute = System.getProperty("user.dir") + font ;
+//        Font.loadFont(new FileInputStream(new File(absolute)), 40);
         User.setTheme("resources/styles.css");
         root.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
         primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));

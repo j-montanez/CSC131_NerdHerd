@@ -26,13 +26,19 @@
             <PasswordField promptText="Password" fx:id="registerPassword" />
             <HBox spacing="5.0">
                <CheckBox prefHeight="19.0" prefWidth="17.0" fx:id="tosCheckbox"/>
-               <Label prefHeight="19.0" prefWidth="75.0" text="I agree to the" />
-               <Hyperlink text="terms of service">
+               <Label prefHeight="19.0" text="I agree to the" fx:id="agreeText" />
+               <Hyperlink text="terms of service" fx:id="tosHyper">
                   <padding>
-                     <Insets left="-8.0" />
+                     <Insets bottom="5.0" />
                   </padding></Hyperlink>
             </HBox>
-                  <Button alignment="CENTER" maxWidth="Infinity" mnemonicParsing="false" text="Join" onAction="#registerUser"/>
+            <VBox>
+               <Button alignment="CENTER" maxWidth="Infinity" mnemonicParsing="false" text="Join" onAction="#registerUser" fx:id="joinButton"/>
+<!--               <padding>-->
+<!--                  <Insets bottom="8.0" />-->
+<!--               </padding>-->
+            </VBox>
+
          </children>
          <padding>
             <Insets left="50.0" right="50.0" />

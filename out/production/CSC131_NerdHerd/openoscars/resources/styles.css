@@ -1,24 +1,410 @@
 /* This is where the CSS will go to style the scenes */
+/* Pallette offwhite: #EAE8E4; tan: #E4DCC2; gold: #B09951; red: #A60608; dark: #220404;*/
 
 
-.root
-{
-    -fx-background-color: rgb(234, 232, 228);
-    -fx-text-fill: rgb(0, 0, 0);
+@font-face{
+    font-family: Poppins-light;
+    src: url(font/Poppins-Light.ttf);
 }
-.button
-{
-    -fx-background-color: rgb(189, 155, 22);
-    -fx-border-color: rgb(0, 0, 0);
-    -fx-text-fill: rgb(0, 0, 0);
+@font-face{
+    font-family: Poppins-Medium;
+    src: url(font/Poppins-Medium.ttf);
 }
-.text
-{
-    -fx-text-fill: rgb(0, 0, 0);
-    -fx-font-size: 10pt;
+
+
+@font-face{
+    font-family: Poppins-Regular;
+    src: url(font/Poppins-Regular.ttf);
+}
+
+
+.root{
+    -fx-text-fill: #220404;
+    -fx-background-color: #EAE8E4;
+    -fx-font-family: 'Poppins';
+    -fx-font-smoothing-type: gray;
+}
+
+#vboxAccount{
+    -fx-background-color: #EAE8E4;
+}
+
+.text-field:focused{
+    /* -fx-faint-focus-color: #220404; */
+    -fx-focus-color: #A60608;
+}
+
+.button{
+    -fx-background-color: #A60608;
+    -fx-text-fill: #220404;
+}
+.text{
+    -fx-text-fill: #220404;
+    /* -fx-font-size: 10pt; */
 
 }
 .label
 {
-    -fx-text-fill: rgb(0, 0, 0);
+    -fx-text-fill: #220404;
+}
+
+/*        NAVBAR        */
+#navBar{
+    -fx-background-color: #B09951;
+}
+
+
+
+
+/*******Buttons********/
+/*      SQUARE        */
+#toRegister{
+    -fx-background-color: #B09951;
+    -fx-background-radius:0;
+    -fx-focus-color: transparent;
+}
+#toSignin{
+    -fx-background-color: #A60608;
+    -fx-text-fill: #EAE8E4;
+    -fx-background-radius:0;
+    -fx-focus-color: transparent;
+}
+/*      ROUNDED */
+#signInButton{
+    -fx-background-radius:30px;
+    -fx-text-fill: #EAE8E4;
+}
+#joinButton{
+    -fx-background-radius:30px;
+    -fx-text-fill: #EAE8E4;
+}
+#website{
+    -fx-background-radius:30px;
+    -fx-text-size: 14pt;
+    -fx-text-fill: #EAE8E4;
+}
+#signOutButton{
+    -fx-background-radius:30px;
+    -fx-text-size: 14pt;
+    -fx-text-fill: #EAE8E4;
+}
+#backButton{
+    -fx-background-radius:30px;
+    -fx-text-size: 14pt;
+    -fx-text-fill: #EAE8E4;
+}
+
+/*      TRANSPARANT         */
+#homeButton{
+    -fx-background-color: transparent;
+}
+#winnersButton{
+    -fx-background-color: transparent;
+    -fx-font-size: 14pt;
+}
+#nominateButton{
+    -fx-background-color: transparent;
+    -fx-font-size: 14pt;
+}
+#voteButton{
+    -fx-background-color: transparent;
+    -fx-font-size: 14pt;
+}
+#searchButton{
+    -fx-background-color: transparent;
+    -fx-font-size: 14pt;
+}
+#accountButton{
+    -fx-background-color: transparent;
+    -fx-font-size: 14pt;
+}
+#settingsButton{
+    -fx-background-color: transparent;
+    -fx-font-size: 14pt;
+}
+#prevArrowWinners{
+    -fx-background-color: transparent;
+}
+#nextArrowWinners{
+    -fx-background-color: transparent;
+}
+#prevArrowNominate{
+    -fx-background-color: transparent;
+}
+#nextArrowNominate{
+    -fx-background-color: transparent;
+}
+#prevArrowVote{
+    -fx-background-color: transparent;
+}
+#nextArrowVote{
+    -fx-background-color: transparent;
+}
+#prevArrowSearch{
+    -fx-background-color: transparent;
+}
+#nextArrowSearch{
+    -fx-background-color: transparent;
+}
+
+
+
+
+/*      Text Fields         */
+#loginEmail{
+    -fx-background-radius:30px;
+    
+}
+#loginPassword{
+    -fx-background-radius:30px;
+    
+}
+#registerEmail{
+    -fx-background-radius:30px;
+
+}
+#registerPassword{
+    -fx-background-radius:30px;
+}
+#searchBox{
+    -fx-background-radius:30px;
+}
+
+
+/*       Hyperlinks        */
+#forgotPassword{
+    -fx-text-fill: #220404;
+}
+#tosHyper{
+    -fx-text-fill: #220404;
+    -fx-font-size: 8pt;
+}
+
+
+
+
+
+
+
+/*           Text              */
+#agreeText{
+    -fx-font-size: 6pt;
+}
+/*           HEADERS            */
+#welcomeHeader{
+    
+    -fx-font-family: 'Poppins Medium';
+    -fx-font-size: 48pt;
+}
+#winnerTextLabel{
+    -fx-font-family: 'Poppins Medium';
+    -fx-font-size: 48pt;
+}
+#nominateText{
+    -fx-font-family: 'Poppins Medium';
+    -fx-font-size: 48pt;    
+}
+#voteTextLabel{
+    -fx-font-family: 'Poppins Medium';
+    -fx-font-size: 48pt;    
+}
+#searchText{
+    -fx-font-family: 'Poppins Medium';
+    -fx-font-size: 48pt;    
+}
+/*         SUBHEADER            */
+#selectYearLabel{
+    -fx-font-size: 16pt;
+    -fx-font-family: 'Poppins Light';
+}
+#welcomeBody{
+    -fx-font-size: 16pt;
+    -fx-font-family: 'Poppins Light';
+    -fx-padding: 40 0 0 0;
+}
+#userEmail{
+    -fx-font-size: 16pt;
+    -fx-font-family: 'Poppins Light';
+}
+#createdBy{
+    -fx-font-size: 48pt;
+    -fx-font-family: 'Poppins Light';
+}
+#Jose{
+    -fx-font-size: 36pt;
+    -fx-font-family: 'Poppins';
+}
+#Evelyn{
+    -fx-font-size: 36pt;
+    -fx-font-family: 'Poppins';
+
+}
+#Skyler{
+    -fx-font-size: 36pt;
+    -fx-font-family: 'Poppins';
+    
+}
+#Alex{
+    -fx-font-size: 36pt;
+    -fx-font-family: 'Poppins';
+    
+}
+#Steven{
+    -fx-font-size: 36pt;
+    -fx-font-family: 'Poppins';
+    
+}
+#Steven{
+    -fx-font-size: 36pt;
+    -fx-font-family: 'Poppins';
+    
+}
+#Phuc{
+    -fx-font-size: 36pt;
+    -fx-font-family: 'Poppins';
+
+}
+
+/*           CARD */
+
+#mainCard{
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(34, 4, 4, 0.3), 10, 0.3, 3, 3);
+}
+
+#smallPoster{
+    -fx-padding: 0 10 0 0; /* padding: top right bottom left */
+}
+#titleCard{
+    -fx-font-size: 16pt;
+    -fx-font-family: 'Poppins Light';
+}
+#categoryCard{
+    -fx-font-size: 8pt;
+    -fx-font-family: 'Poppins Light';
+
+}
+#scrollPaneCard{
+    -fx-border-color: transparent;
+    -fx-background-color:transparent;
+}
+
+
+
+
+
+
+
+/*         Details        */
+#posterDetails{
+    
+}
+#movieTitleDetails{
+    
+    -fx-font-family: 'Poppins Medium';
+    -fx-font-size: 48pt;
+    -fx-padding: 60 0 0 0;
+}
+#yearGenreDetails{
+    
+    -fx-font-size: 14pt;
+    -fx-font-family: 'Poppins Light';
+}
+#imdbRatingAndVotesDetails{
+    
+    -fx-font-size: 14pt;
+    -fx-font-family: 'Poppins Light';
+}
+#metaCriticScoreDetails{
+    
+    -fx-font-size: 14pt;
+    -fx-font-family: 'Poppins Light';
+}
+/* #awardDetails{
+    
+    -fx-font-size: 16pt;
+    -fx-font-family: 'Poppins Light';
+} */
+#plotDetails{
+    -fx-font-size: 14pt;
+    -fx-font-family: 'Poppins Light';
+}
+#plotDetailsScrollPane{
+    
+    -fx-border-color: transparent;
+    -fx-background-color: #EAE8E4;
+    -fx-effect: dropshadow(gaussian, rgba(34, 4, 4, 0.3), 10, 0.3, 3, 3);
+}
+#castDetailsScrollPane{
+    
+    -fx-border-color: transparent;
+    -fx-background-color: #EAE8E4;
+    -fx-effect: dropshadow(gaussian, rgba(34, 4, 4, 0.3), 10, 0.3, 3, 3);
+
+}
+#castDetails{
+    -fx-font-size: 14pt;
+    -fx-font-family: 'Poppins Light';
+    -fx-padding: 0 0 0 70;
+}
+#movieDetailsText{
+    -fx-font-size: 18pt;
+    -fx-font-family: 'Poppins Medium';
+    -fx-padding: 40 0 0 0;
+}
+#castAndCrew{
+    -fx-font-size: 18pt;
+    -fx-font-family: 'Poppins Medium';
+}
+
+
+
+
+
+
+/*      Checkbox           */
+.check-box .box {
+
+    -fx-background-color: white;
+    -fx-border-color:#220404;
+    -fx-border-radius:3px; 
+    
+    }
+    
+    .check-box:selected .mark {
+    
+    -fx-background-color: #EAE8E4;
+    
+    }
+    
+    .check-box:selected .box {
+    
+    -fx-background-color: #A60608;
+    }
+
+
+
+
+
+
+
+/*     ComboBox            */
+
+.combo-box-base {
+    -fx-background-color: white, #220404, white, white;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+    -fx-text-fill: -fx-text-base-color;
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
+}
+.combo-box-popup .list-view .list-cell:filled:hover {
+    -fx-background-color:  #A60608;
+    -fx-text-fill: #EAE8E4;
+}
+ .combo-box .list-cell {
+    -fx-background: white;
+    -fx-background-color: transparent;
+    -fx-text-fill: #220404;
 }
