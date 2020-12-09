@@ -71,7 +71,7 @@ For more information visit the website [Here](https://j-montanez.github.io/CSC13
         - We have used Figma to create both wireframe here and high-fidelity prototype here.
     - e. Incorporate pair programming during one Sprint.
         - As evidenced by a 1 minute clip of a recorded in-person or Use Together session with link included in final deliverables.
-        - We have done this here.
+        - We have done this [here](https://www.youtube.com/watch?v=OdL_c7lw_Zc).
     - f. Incorporate one or more design patterns.
         - :heavy_exclamation_mark: (Put proof and information here) :heavy_exclamation_mark:         
     - g. Adopt a coding standard and follow it

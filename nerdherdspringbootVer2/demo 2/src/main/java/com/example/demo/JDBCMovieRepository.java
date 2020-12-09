@@ -118,7 +118,7 @@ public class JDBCMovieRepository implements MovieRepository {
 	public List<Movie> generalSearch(String keyWord) {
 		// TODO Auto-generated method stub
 		return jdbcTemplate.query(
-                "SELECT\n" + 
+                "SELECT\n" +
                 "    kaggle_data.*, imdb_data.*\n" + 
                 "FROM\n" + 
                 "	kaggle_data INNER JOIN imdb_data ON kaggle_data.film=imdb_data.title\n" + 

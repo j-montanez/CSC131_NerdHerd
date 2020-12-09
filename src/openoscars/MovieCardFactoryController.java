@@ -42,7 +42,7 @@ public class MovieCardFactoryController implements Initializable {
 
     // global
     public static int index = 0;
-    public static String yearGlobal = "2019";
+    public static String yearGlobal = "2018";
     public static List<MovieNS> movies = null;
     public GridPane gridPane;
 
@@ -55,19 +55,19 @@ public class MovieCardFactoryController implements Initializable {
             System.out.println("index+=6 " + index + " : " + movies.size());
         }
         if(!(nominatePane == null)){
-            getMovieByYear(Integer.parseInt(yearGlobal));
+            getMovieByYear(2019);
             cardGrid(createGrid());
             System.out.println("index+=6 " + index + " : " + movies.size());
         }
         if(!(votePane == null)){
-            getMovieByYear(Integer.parseInt(yearGlobal));
+            getMovieByYear(2019);
             cardGrid(createGrid());
             System.out.println("index+=6 " + index + " : " + movies.size());
         }
         if(!(searchPane == null)){
            System.out.println("User.getSearch() " + User.getSearch());
            getMovieBySearch(User.getSearch());
-//            System.out.println(movies.get(index).getTitle());
+           System.out.println(movies.get(index).getTitle());
            cardGrid(createGrid());
            System.out.println("index+=6 " + index + " : " + movies.size());
 
@@ -76,20 +76,17 @@ public class MovieCardFactoryController implements Initializable {
 
     public void getMovieBySearch(String search){
         MovieArraySearch mv = new MovieArraySearch(search);
-//        System.out.println(mv);
-        List<MovieNS> movies = mv.getMovies();
-//        System.out.println(movies);
-        List<String> tit = mv.getYup();
-//        System.out.println(tit);
-//        System.out.println("Elements in movies: " + movies.size());
-//        System.out.println("Elements in movies: " + movies.get(1));
+        movies = mv.getMovies();
+//        for(int i = 0; i<6;i++) {
+//            System.out.println(i + " " + movies.get(i).getTitle());
+//        }
     }
 
     public void getMovieByYear(int year){
         MovieArray mv = new MovieArray(year);
         movies = mv.getMovies();
-        List<String> tit = mv.getYup();
         System.out.println("Elements in movies: " + movies.size());
+
     }
 
     public void addComboBox(){
@@ -98,7 +95,7 @@ public class MovieCardFactoryController implements Initializable {
             yearComboBox.getItems().add(Integer.toString(i));
         }
         yearComboBox.setEditable(false);
-        yearComboBox.setValue(Integer.toString(2019));
+        yearComboBox.setValue(Integer.toString(2018));
         if(winnersPane != null) {
             winnersPane.setTop(yearComboBox);
         } else if(nominatePane != null) {
@@ -111,6 +108,7 @@ public class MovieCardFactoryController implements Initializable {
         yearComboBox.valueProperty().addListener(new ChangeListener<String>() {
             @Override public void changed(ObservableValue ov, String t, String t1) {
                 yearGlobal = t1;
+                movies.clear();
                 System.out.println(yearGlobal);
                 getMovieByYear(Integer.parseInt(yearGlobal));
 
@@ -119,22 +117,6 @@ public class MovieCardFactoryController implements Initializable {
 //            System.out.println("Index: " + i + " Title:" + movies.get(i).getTitle());
 //        }
                 //clear old
-                GridPane gridPane = createGrid();
-                if(winnersPane != null) {
-//            winnersPane.setCenter(null);
-                    System.out.println("In winner pane clear");
-                    winnersPane.setCenter(null);
-                } else if(nominatePane != null) {
-//            nominatePane.setCenter(null);
-                    nominatePane.setCenter(null);
-                } else if(votePane != null) {
-//            votePane.setCenter(null);
-                    votePane.setCenter(null);
-                } else if(searchPane != null) {
-//            searchPane.setCenter(null);
-                    searchPane.setCenter(null);
-                }
-
                 index = 0;
                 cardGrid(createGrid());
                 System.out.println("index+=6 " + index + " : " + movies.size());
@@ -252,7 +234,7 @@ public class MovieCardFactoryController implements Initializable {
 //        System.out.println("Card Creation bottom index: " + index);
 
 
-
+//      Click on the Card's poster
         iv.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {

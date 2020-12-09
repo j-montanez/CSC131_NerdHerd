@@ -18,8 +18,6 @@ public class Main extends Application {
         MovieArray mv = new MovieArray(year);
         List<MovieNS> movies = mv.getMovies();
         System.out.println("movies: " + movies);
-        List<String> tit = mv.getYup();
-        System.out.println(tit);
         for(int i = 0; i<movies.size();i++) {
             System.out.println("Index: " + i + " Title:" + movies.get(i).getTitle() + " " + year);
         }
@@ -48,7 +46,7 @@ public class Main extends Application {
 
 
 
-//
+
 ///////         Test for MovieArraySearch
 //        MovieArraySearch mv = new MovieArraySearch("horror");
 ////        System.out.println(mv);
