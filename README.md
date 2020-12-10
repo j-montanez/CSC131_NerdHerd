@@ -15,7 +15,30 @@ For more information visit the website [Here](https://j-montanez.github.io/CSC13
 
 ## How to run OpenOscars
 Start a terminal in nerdherdspringbootVer2/demo 2/ with the command `./mvnw spring-boot:run`
+
+
 run Main.java under CSC131_NerdHerd/src/openoscars/
+
+## Document Deliverable
+1. One document containing:
+    1. An itemized list of all Product and Process items for which you are seeking credit.
+        1. See Minimum and Non-minimum deliverables below.
+    1. If applicable, specific dates, Sprints, classes etc. during which the item occurred for example:
+        1. Date/duration and participants of pair programming session and link to MP4 recording snipped
+        1. Evelyn and Jose during Sprint 3.
+    1. Sprint card# and task card# and class names plus repository check-in number for refactoring efforts
+        1. Sprint Card #97 and task number #98. GUI Branch check in number 2db1c2e18fb10cda09a1c946166b50afecf0ebd5
+            1. [Link](https://github.com/j-montanez/CSC131_NerdHerd/commit/2db1c2e18fb10cda09a1c946166b50afecf0ebd5#diff-45fe6ef9671cb1a18046b0c02394cccbd7fb3bdcced48ce34ffccc8c013985df)
+        1. Class name that contains any design patterns used and the name of the design pattern.
+            1. MovieCardFactoryController.java uses the factory design pattern.
+    1. Your Scrum artifact – hyperlink to Flying Donut
+        1. [Link](https://www.flyingdonut.io/app/projects/5f84cb02e49a80513cb3a1e4/sprints)
+    1. Your version control repository – hyperlink to Github
+        1. [Link](https://github.com/j-montanez/CSC131_NerdHerd)
+    1. Other artifacts (personas, mockups, SonarQube screen captures, etc) – hardcopies or links to online versions
+        1. See Minimum and Non-minimum deliverables below. 
+2. The presentation file delivered during your live presentation.
+    1. [Slides](https://docs.google.com/presentation/d/1PvjoM2NymyUTKuJzYLf4mcOS6xHwCf_nWy43PIYbw0I/edit?usp=sharing)
 
 
 ## Minimum Project Deliverables
