@@ -41,7 +41,7 @@ For more information visit the website [Here](https://j-montanez.github.io/CSC13
 3. Presentation
     - a. Presentation details will be discussed toward the end of the semester however
          all team members must participate in the oral project presentation.
-         - [Slides]()
+         - [Slides](https://docs.google.com/presentation/d/1PvjoM2NymyUTKuJzYLf4mcOS6xHwCf_nWy43PIYbw0I/edit?usp=sharing)
          - Demo and discussion to be done during class.
 
 ## Non-Minimum Project Deliverables
