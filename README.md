@@ -87,9 +87,9 @@ For more information visit the website [Here](https://j-montanez.github.io/CSC13
     - h. Use a database to store and retrieve Oscar data using queries.
         - :heavy_exclamation_mark: (Put proof and information here) :heavy_exclamation_mark:        
     - i. Analyze Code using SonarQube or similar tool.
-        - :heavy_exclamation_mark: (Put proof and information here) :heavy_exclamation_mark:        
+        - We did not do this.        
     - j. Product/REST service is publicly accessible via HTTP
-        - :heavy_exclamation_mark: (Put proof and information here) :heavy_exclamation_mark:        
+        - [Resquests need to be sent here](https://j-montanez.github.io/CSC131_NerdHerd/findByName.html)        
     - k. Explain and document obstacles encountered during the project and how those
      obstacles were handled. Link can be found [here](https://docs.google.com/document/d/1HVMmpAKTPowrsNHPmgn8DHdnkKejtSkHEHKfmvwpvuQ/edit)
     - l. Incorporate a significant and descriptive diagram (use case, class, sequence,
