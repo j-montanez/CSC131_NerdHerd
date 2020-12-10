@@ -43,7 +43,7 @@ For more information visit the website [Here](https://j-montanez.github.io/CSC13
     - e. Must implement AT LEAST one user story per sprint.
         - We have implemented at multiple stories per sprint from the backlog and assigned tasks to developers.
     - f. Must incorporate unit testing for a minimum of 2 classes.
-        - :heavy_exclamation_mark: (Put proof and information here) :heavy_exclamation_mark: 
+        - We will go over this during the presentation. Documentation is on FlyingDonut. 
 3. Presentation
     - a. Presentation details will be discussed toward the end of the semester however
          all team members must participate in the oral project presentation.
@@ -54,18 +54,19 @@ For more information visit the website [Here](https://j-montanez.github.io/CSC13
 
 1. Product
     - a. The results returned contain data which correlates the Oscar category results with additional data from an outside source such as OMDB, TMDB, TVDB etc. by providing a link to an external site for the movie.
-        - :heavy_exclamation_mark: (Put proof and information here) :heavy_exclamation_mark: 
+        - [We will demonstrate this feature during the presentation.](https://j-montanez.github.io/CSC131_NerdHerd/findByOscar.html) 
     - b. The search feature allows limiting results a to date range.
-        - :heavy_exclamation_mark: (Put proof and information here) :heavy_exclamation_mark: 
+        - [We will demonstrate this feature during the presentation.](https://j-montanez.github.io/CSC131_NerdHerd/findAllByYear.html) 
     - c. More than one category can be searched.
-        - :heavy_exclamation_mark: (Put proof and information here) :heavy_exclamation_mark: 
+        - We will demonstrate this feature during the presentation. 
     - d. More than one endpoint that delivers a collection resource.
-        - :heavy_exclamation_mark: (Put proof and information here) :heavy_exclamation_mark: 
+        - [We will demonstrate this feature during the presentation.](https://j-montanez.github.io/CSC131_NerdHerd/findAllByYear.html) 
     - e. More than one endpoint that delivers a singleton resource.
-        - :heavy_exclamation_mark: (Put proof and information here) :heavy_exclamation_mark: 
+        - [We will demonstrate this feature during the presentation.](https://j-montanez.github.io/CSC131_NerdHerd/findByName.html) 
     - f. Graphical user interface (GUI) for the product (or portions thereof).
-        - :heavy_exclamation_mark: (Put proof and information here) :heavy_exclamation_mark:     
+        - The code for the GUI is in this repository, but we will demonstrate it during our presentation.     
     - g. Well-designed HTML page documenting API endpoints and example inputs/outputs.
+        - [Website link](https://j-montanez.github.io/CSC131_NerdHerd/findByName.html)
 2. Process
     - a. Incorporate test-driven development practice for one Sprint
         - We have not done this.
