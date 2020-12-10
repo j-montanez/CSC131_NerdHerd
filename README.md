@@ -71,7 +71,7 @@ For more information visit the website [Here](https://j-montanez.github.io/CSC13
     - a. Incorporate test-driven development practice for one Sprint
         - We have not done this.
     - b. Refactor code in a significant manner with a clear and stated goal for refactoring.
-        - :heavy_exclamation_mark: (Put proof and information here) :heavy_exclamation_mark: 
+        - The evidence is in our GitHub repo. The Gui specifically. 
     - c. Incorporate Contextual Inquiry/Elicitation techniques to create visual persona(s) and develop additional personas.
         - See .pdf download for Minimum Project Deliverables 2a
     - d. Create mockups for a proposed GUI (even if not implemented).
@@ -80,7 +80,7 @@ For more information visit the website [Here](https://j-montanez.github.io/CSC13
         - As evidenced by a 1 minute clip of a recorded in-person or Use Together session with link included in final deliverables.
         - We have done this [here](https://www.youtube.com/watch?v=OdL_c7lw_Zc).
     - f. Incorporate one or more design patterns.
-        - :heavy_exclamation_mark: (Put proof and information here) :heavy_exclamation_mark:         
+        - We will point them out during our presentation.         
     - g. Adopt a coding standard and follow it
         - As evidence by its inclusion in the repository
         - We are using the [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)
@@ -93,6 +93,5 @@ For more information visit the website [Here](https://j-montanez.github.io/CSC13
     - k. Explain and document obstacles encountered during the project and how those
      obstacles were handled. Link can be found [here](https://docs.google.com/document/d/1HVMmpAKTPowrsNHPmgn8DHdnkKejtSkHEHKfmvwpvuQ/edit)
     - l. Incorporate a significant and descriptive diagram (use case, class, sequence,
-     architecture, etc.) into analysis or design process.
-        - :heavy_exclamation_mark: (Put proof and information here) :heavy_exclamation_mark: 
+     architecture, etc.) into analysis or design process. 
        
