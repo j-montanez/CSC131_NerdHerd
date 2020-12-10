@@ -37,7 +37,7 @@ For more information visit the website [Here](https://j-montanez.github.io/CSC13
     - b. Must have one persona
         - Persona can be seen in the [product vision document](https://cdn.discordapp.com/attachments/760733386296918021/768260746597236766/ProductVisionDocument_FINAL_2.0.pdf) for 2a or Non-minimum requirement 2c
     - c. Must store source code in a repository such as Github.com or Gitlab.ecs.csus.edu
-        - You are currently on the GitHub repository for this requirement.
+        - You are currently on the GitHub repository for this requirement. [GitHub](https://github.com/j-montanez/CSC131_NerdHerd)
     - d. Must use Flying Donut to track and adhere to Scrum process.
         - We have used Flying Donut to track and adhere to Scrum. We have used a product backlog with stories, we have used story points to estimate stories, and we have used hours estimation for tasks.
     - e. Must implement AT LEAST one user story per sprint.
