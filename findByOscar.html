@@ -19,7 +19,7 @@
 					<div class="sidenav">
 						<a href = "findByName.html">findByName</a>
 						<a class="active">findByOscar</a>
-						<a href="findByAwards.html">findByAwards</a>
+						<a href="findAwards.html">findAwards</a>
 						<a href="findAllByYear.html">findAllByYear</a>
 					</div>
 				</p>
@@ -56,7 +56,7 @@
 					For {oscar category} to be valid: <br>
 				</div>
 				<div class = "parameters">
-					-The complete title must be entered <br>
+					-Pick a category from the Oscars' list <br>
 					-All spaces are replaced with "%20"
 				</div>
 
@@ -72,24 +72,24 @@
 					    <th>Request</th>
 					  </tr>
 					  <tr>
-					    <td>Picture</td>
-					    <td>i dont know what the output looks like</td>
-					    <td>http://localhost:8080/demo/findByOscar?name=Picture</td>
+					    <td>Actress</td>
+					    <td>[{"imdbRating":null,"imdbVotes":null,"runtime":null,"year":null,"writer":null,"director":null,"rated":null,"plot":null<br>,"metascore":null,"poster":null,"genre":null,"released":null,"title":"7th Heaven","actors":null},{"imdbRating":null,"imdbVotes":null,"runtime":null,"year":null,"writer":null,"director":null,"rated":null,"plot":null,<br>"metascore":null,"poster":null,"genre":null,"released":null,"title":"Coquette","actors":null}...</td>
+					    <td>http://localhost:8080/demo/findByOscar?name=actress</td>
 					  </tr>
 					  <tr>
 					    <td>Song</td>
-					    <td>i dont know what the output looks like</td>
+					    <td>[{"imdbRating":null,"imdbVotes":null,"runtime":null,"year":null,"writer":null,"director":null,"rated":null,"plot":null<br>,"metascore":null,"poster":null,"genre":null,"released":null,"title":"The Gay Divorcee","actors":null},{"imdbRating":null,"imdbVotes":null,"runtime":null,"year":null,"writer":null,"director":null,"rated":null,"plot":null<br>,"metascore":null,"poster":null,"genre":null,"released":null,"title":"Gold Diggers of 1935","actors":null}...</td>
 					    <td>http://localhost:8080/demo/findByOscar?name=Song</td>
 					  </tr>
 					  <tr>
 					    <td>Director</td>
-					    <td>i dont know what the output looks like</td>
+					    <td>[{"imdbRating":null,"imdbVotes":null,"runtime":null,"year":null,"writer":null,"director":null,"rated":null,"plot":null,<br> "metascore":null,"poster":null,"genre":null,"released":null,"title":"In Old Chicago","actors":null},{"imdbRating":null,"imdbVotes":null,"runtime":null,"year":null,"writer":null,"director":null,"rated":null,"plot":null,<br>"metascore":null,"poster":null,"genre":null,"released":null,"title":"The Charge of the Light Brigade","actors":null}...</td>
 					    <td>http://localhost:8080/demo/findByOscar?name=Director</td>
 					  </tr>
 					  <tr>
-					    <td>Fail Example</td>
-					    <td>i dont know what the output looks like</td>
-					    <td>http://localhost:8080/demo/findByOscar?name=PLACEHOLDER</td>
+					    <td>Actor</td>
+					    <td>[{"imdbRating":null,"imdbVotes":null,"runtime":null,"year":null,"writer":null,"director":null,"rated":null,<br>"plot":null,"metascore":null,"poster":null,"genre":null,"released":null,"title":"The Last Command","actors":null},{"imdbRating":null,"imdbVotes":null,"runtime":null,"year":null,"writer":null,"director":null,"rated":null,<br>"plot":null,"metascore":null,"poster":null,"genre":null,"released":null,"title":"In Old Arizona","actors":null}...</td>
+					    <td>http://localhost:8080/demo/findByOscar?name=actor</td>
 					  </tr>
 					</table>
 				</div>

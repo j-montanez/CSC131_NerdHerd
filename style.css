@@ -11,7 +11,7 @@ h1{
   border:1px gold solid;
 }
 html{
-width:1920px;
+width:1910px;
 }
 body {
   margin: 0;
@@ -33,7 +33,7 @@ body {
   display: block;
   color: black;
   text-align: center;
-  padding: .5% 13.1%;
+  padding: 10px 245px;
   text-decoration: none;
   font-size: 25px;
   border:1px maroon solid;
@@ -123,6 +123,15 @@ body {
   width:15%;
 }
 
+.container3{
+  height: 760px;
+  width:1810px;
+  border:5px gold solid;
+  /*border-bottom: 0px;*/
+  background-color: maroon;
+  padding:20px;
+}
+
 .text{
   color:white;
   font:normal 20px Tahoma;
@@ -143,11 +152,27 @@ body {
   margin-right: 20px;
 }
 
+h2{
+  margin-bottom: 20px;
+  width:500px ;
+  font: 40px Tahoma;
+}
+
 .oscartext{
+  margin:20px;
   padding-top: 30px;
   color:white;
-  font:20px Tahoma;
-  margin-left:20px;
+  font:25px Tahoma;
+  float:left;
+  line-height:45px;
+  text-align: center;
+  /*margin:60%;*/
+}
+
+.oscartext u{
+  color:gold;
+  font:30px Tahoma;
+  border-top: 10px;
 }
 
 .sendmsg{
