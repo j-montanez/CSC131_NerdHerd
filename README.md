@@ -35,7 +35,7 @@ For more information visit the website [Here](https://j-montanez.github.io/CSC13
     - a. Must have a product vision
         - Product Vision can be found [here](https://cdn.discordapp.com/attachments/760733386296918021/768260746597236766/ProductVisionDocument_FINAL_2.0.pdf)
     - b. Must have one persona
-        - Persona can be seen in the product vision document for 2a or Non-minimum requirement 2c
+        - Persona can be seen in the [product vision document](https://cdn.discordapp.com/attachments/760733386296918021/768260746597236766/ProductVisionDocument_FINAL_2.0.pdf) for 2a or Non-minimum requirement 2c
     - c. Must store source code in a repository such as Github.com or Gitlab.ecs.csus.edu
         - You are currently on the GitHub repository for this requirement.
     - d. Must use Flying Donut to track and adhere to Scrum process.
