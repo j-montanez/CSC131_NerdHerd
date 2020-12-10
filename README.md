@@ -16,16 +16,16 @@ For more information visit the website [Here](https://j-montanez.github.io/CSC13
 ## Minimum Project Deliverables
 1. Product 
     - a. Must provide a REST endpoint that delivers a collection resource in JSON.
-        - [Link to website and description on how to request it](https://j-montanez.github.io/CSC131_NerdHerd/findByName.html)
+        - [Link to website and description on how to request the endpoint](https://j-montanez.github.io/CSC131_NerdHerd/findByName.html)
         - Request must be made to [http://localhost:8080/demo/findAllByYear?year=](http://localhost:8080/demo/findAllByYear?year=)
         
     - b. Must provide a REST endpoint that delivers a singleton resource in JSON.
-        - [Link to website and description on how to request it](https://j-montanez.github.io/CSC131_NerdHerd/findByName.html)
+        - [Link to website and description on how to request the endpoint](https://j-montanez.github.io/CSC131_NerdHerd/findByName.html)
         - Request must be made to [http://localhost:8080/demo/findByName?name=](http://localhost:8080/demo/findByName?name=)
         
     - c. Must provide a REST endpoint that allows search of 1 Oscar category and returns
          results containing the nominees in JSON.
-        -  [Link to website and description on how to request it](https://j-montanez.github.io/CSC131_NerdHerd/findByOscar.html)
+        -  [Link to website and description on how to request the endpoint](https://j-montanez.github.io/CSC131_NerdHerd/findByOscar.html)
         -  Request must be made to [http://localhost:8080/demo/findByOscar?name=](http://localhost:8080/demo/findByOscar?name=)
         
     - d. Must provide a minimum level of documentation regarding access, input and
