@@ -30,7 +30,7 @@ For more information visit the website [Here](https://j-montanez.github.io/CSC13
         
     - d. Must provide a minimum level of documentation regarding access, input and
          output to your API endpoints.
-        - :heavy_exclamation_mark: (Put proof and information here) :heavy_exclamation_mark: 
+        - [Refer to our website for documentation](https://j-montanez.github.io/CSC131_NerdHerd/findByName.html) 
 2. Process
     - a. Must have a product vision
         - Product Vision can be found [here](https://cdn.discordapp.com/attachments/760733386296918021/768260746597236766/ProductVisionDocument_FINAL_2.0.pdf)
