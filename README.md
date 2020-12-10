@@ -84,7 +84,7 @@ For more information visit the website [Here](https://j-montanez.github.io/CSC13
     - j. Product/REST service is publicly accessible via HTTP
         - :heavy_exclamation_mark: (Put proof and information here) :heavy_exclamation_mark:        
     - k. Explain and document obstacles encountered during the project and how those
-     obstacles were handled.
+     obstacles were handled. Link can be found [here](https://docs.google.com/document/d/1HVMmpAKTPowrsNHPmgn8DHdnkKejtSkHEHKfmvwpvuQ/edit)
     - l. Incorporate a significant and descriptive diagram (use case, class, sequence,
      architecture, etc.) into analysis or design process.
         - :heavy_exclamation_mark: (Put proof and information here) :heavy_exclamation_mark: 
