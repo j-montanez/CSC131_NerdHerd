@@ -85,7 +85,7 @@ For more information visit the website [Here](https://j-montanez.github.io/CSC13
         - As evidence by its inclusion in the repository
         - We are using the [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)
     - h. Use a database to store and retrieve Oscar data using queries.
-        - :heavy_exclamation_mark: (Put proof and information here) :heavy_exclamation_mark:        
+        - [Here's a screenshot of our database, further proof will be provided in demo](https://media.discordapp.net/attachments/760733386296918021/786443886536556564/unknown.png?width=768&height=376)        
     - i. Analyze Code using SonarQube or similar tool.
         - We did not do this.        
     - j. Product/REST service is publicly accessible via HTTP
