@@ -114,7 +114,6 @@ public class Controller implements Initializable {
             User user = new User();
             String email = user.getEmail();
             userEmail.setText(email);
-            System.out.println(User.getNominatedMovie() + " " + User.getVotedMovie());
         }
 
         if(loginPane != null && votedTextAccount != null){
@@ -123,34 +122,7 @@ public class Controller implements Initializable {
         if(loginPane != null && nominatedTextAccount != null){
             nominatedTextAccount.setText("You have nominated: " + User.getNominatedMovie());
         }
-        // Settings was abandoned due to lack of time.
-//        if(settingsPane != null){
-//            try {
-//                styleToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
-//                    @Override
-//                    public void changed(ObservableValue<? extends Toggle> ob,
-//                                        Toggle o, Toggle n)
-//                    {
-//
-//
-//                        RadioButton rb = (RadioButton)styleToggleGroup.getSelectedToggle();
-//
-//                        if (rb != null) {
-//                            if (rb == darkModeThemeSelector){
-//                                System.out.println(settingsPane.getStylesheets());
-//                                settingsPane.getStylesheets().clear();
-//                                User.setTheme("resources/darkmode.css");
-//                                settingsPane.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
-//
-//
-//                            }
-//                        }
-//                    }
-//                });
-//            } catch (NullPointerException e) {
-//                System.out.println("Null Pointer");
-//            }
-//        }
+
     }
 
     // Navigation Button Handling
@@ -189,8 +161,6 @@ public class Controller implements Initializable {
             accidentPane.setAlignment(Pos.CENTER);
 
             view = accidentPane;
-//            BorderPane.setAlignment(view, Pos.CENTER);
-//            System.out.println("No connection");
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -255,18 +225,6 @@ public class Controller implements Initializable {
 
     }
 
-//    @FXML
-//    private void navigateAbout(ActionEvent event){
-//        Pane view = null;
-//        try {
-//            view = FXMLLoader.load(getClass().getResource("resources/about.fxml"));
-//            view.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        settingsPane.setCenter(view);
-//    }
-
     @FXML
     private void navigateRegister(ActionEvent event){
         Pane view = null;
@@ -322,17 +280,17 @@ public class Controller implements Initializable {
             bw.close();
             Alert alert = new Alert(Alert.AlertType.NONE, "Account Created", ButtonType.OK);
             Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-            stage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("iconSmall.png")));
             alert.show();
         } else if(!tosCheckbox.isSelected()) {
             Alert alert = new Alert(Alert.AlertType.NONE, "Please agree to the terms of service.", ButtonType.OK);
             Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-            stage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("iconSmall.png")));
             alert.show();
         } else {
             Alert alert = new Alert(Alert.AlertType.NONE, "Please enter your email and password", ButtonType.OK);
             Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-            stage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("iconSmall.png")));
             alert.show();
         }
 
@@ -363,7 +321,7 @@ public class Controller implements Initializable {
                     }
                     Scene scene = new Scene(root, 1366, 768);
                     stage.setScene(scene);
-                    stage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
+                    stage.getIcons().add(new Image(getClass().getResourceAsStream("iconSmall.png")));
                     stage.show();
                     Stage oldStage = (Stage) loginPane.getScene().getWindow();
                     oldStage.close();
@@ -397,7 +355,7 @@ public class Controller implements Initializable {
         }
         Scene scene = new Scene(root, 426, 300);
         stage.setScene(scene);
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("iconSmall.png")));
         stage.show();
 
         // close main window
@@ -422,7 +380,7 @@ public class Controller implements Initializable {
         root.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
         newStage.setTitle("OpenOscars");
         newStage.setScene(new Scene(root, 426, 300));
-        newStage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
+        newStage.getIcons().add(new Image(getClass().getResourceAsStream("iconSmall.png")));
         newStage.show();
     }
 
@@ -439,7 +397,7 @@ public class Controller implements Initializable {
         }
         Scene scene = new Scene(root, 1366, 768);
         stage.setScene(scene);
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("iconSmall.png")));
         stage.show();
         Stage oldStage = (Stage) backButton.getScene().getWindow();
         oldStage.close();

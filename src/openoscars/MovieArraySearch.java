@@ -15,7 +15,6 @@ public class MovieArraySearch {
 	static private List<String> yup = new ArrayList<String>();
 	
 	public MovieArraySearch(String key) {
-		System.out.println("Key: " + key);
 		getSpringYear(key);
 	}
 	
@@ -35,7 +34,6 @@ public class MovieArraySearch {
 		
 			for(int i = 0; i<jarray.length();i++) {
 				JSONObject movie = jarray.getJSONObject(i);
-				System.out.println("movie: " + movie);
 				String newTitle = movie.getString("title");
 				if(i==0){
 					 String Title = movie.getString("title");
@@ -52,10 +50,8 @@ public class MovieArraySearch {
 				}
 				if(i%2 == 0){
 					last = movie.getString("title");
-					System.out.println("last: " + last);
 				}else{
 					twoAgo = movie.getString("title");
-					System.out.println("twoAgo: " + twoAgo);
 				}
 
 			}	 			

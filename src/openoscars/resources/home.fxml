@@ -14,7 +14,7 @@
                   <graphic>
                      <ImageView fitHeight="25.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                           <Image url="@imgs/OpenOscarsWordmark.png" />
+                           <Image url="@imgs/WordmarkSmall.png" />
                         </image>
                      </ImageView>
                   </graphic>

@@ -55,8 +55,6 @@ public class DetailController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Variables
-
-//        System.out.println(User.getCurrentMovie().getTitle());
         String poster = User.getCurrentMovie().getPoster();
         String plot = User.getCurrentMovie().getPlot();
         String title = User.getCurrentMovie().getTitle();
@@ -89,9 +87,6 @@ public class DetailController implements Initializable {
         imdbRatingAndVotesDetails.setId("imdbRatingAndVotesDetails");
         metaCriticScoreDetails.setText("Metacritic Rating: " + metacritic);
         metaCriticScoreDetails.setId("metaCriticScoreDetails");
-//        oscarWins = Objects.requireNonNullElse(awards, "none");
-//        awardsWonDetails.setText("Awards won: " + oscarWins );
-//        awardsWonDetails.setId("awardDetails");
 
         // ScrollPane
         plotDetailsScrollpane.setPrefSize(400,200);

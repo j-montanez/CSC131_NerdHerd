@@ -34,9 +34,6 @@
             </HBox>
             <VBox>
                <Button alignment="CENTER" maxWidth="Infinity" mnemonicParsing="false" text="Join" onAction="#registerUser" fx:id="joinButton"/>
-<!--               <padding>-->
-<!--                  <Insets bottom="8.0" />-->
-<!--               </padding>-->
             </VBox>
 
          </children>

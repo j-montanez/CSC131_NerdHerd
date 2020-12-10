@@ -13,6 +13,11 @@ For more information visit the website [Here](https://j-montanez.github.io/CSC13
 - Steven Tran (Dev Team)
 - Phuc Truong (Dev Team)
 
+## How to run OpenOscars
+Start a terminal in nerdherdspringbootVer2/demo 2/ with the command `./mvnw spring-boot:run`
+run Main.java under CSC131_NerdHerd/src/openoscars/
+
+
 ## Minimum Project Deliverables
 1. Product 
     - a. Must provide a REST endpoint that delivers a collection resource in JSON.

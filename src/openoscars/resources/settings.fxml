@@ -5,35 +5,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <BorderPane fx:id="settingsPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="openoscars.Controller">
-<!--    <top>-->
-<!--        <HBox fx:id="navBar">-->
-<!--            <HBox>-->
-<!--                <children>-->
-<!--                    <Button onAction="#navigateHome">-->
-<!--                        <graphic>-->
-<!--                            <ImageView fitHeight="20.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">-->
-<!--                                <image>-->
-<!--                                    <Image url="@imgs/OpenOscarsWordmark.png" />-->
-<!--                                </image>-->
-<!--                            </ImageView>-->
-<!--                        </graphic>-->
-<!--                    </Button>-->
-<!--                    <Button text="Winners" onAction="#navigateWinners"/>-->
-<!--                    <Button text="Nominate" onAction="#navigateNominate"/>-->
-<!--                    <Button text="Vote" onAction="#navigateVote"/>-->
-<!--                </children>-->
-<!--            </HBox>-->
-<!--            <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">-->
-<!--                <children>-->
-<!--                    <TextField alignment="CENTER_RIGHT" />-->
-<!--                    <Button text="Search" onAction="#navigateSearch"/>-->
-<!--                    <Button alignment="CENTER_RIGHT" text="Account" onAction="#popupAccount"/>-->
-<!--                    <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="Settings" onAction="#navigateSettings" />-->
-<!--                </children>-->
-<!--            </HBox>-->
-<!--        </HBox>-->
-<!--    </top>-->
-
     <center>
         <GridPane alignment="CENTER">
             <children>

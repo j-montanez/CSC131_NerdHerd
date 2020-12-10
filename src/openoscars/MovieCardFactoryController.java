@@ -60,28 +60,20 @@ public class MovieCardFactoryController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if(!(winnersPane == null)){
             addComboBox();
-//            System.out.println("After combo");
             getMovieByYear(Integer.parseInt(yearGlobal));
-//            System.out.println("get movie by year");
             cardGrid(createGrid());
-//            System.out.println("index+=6 " + index + " : " + movies.size());
         }
         if(!(nominatePane == null)){
             getMovieByYear(2019);
             cardGrid(createGrid());
-//            System.out.println("index+=6 " + index + " : " + movies.size());
         }
         if(!(votePane == null)){
             getMovieByYear(2019);
             cardGrid(createGrid());
-//            System.out.println("index+=6 " + index + " : " + movies.size());
         }
         if(!(searchPane == null)){
-//           System.out.println("User.getSearch() " + User.getSearch());
            getMovieBySearch(User.getSearch());
-           System.out.println(movies.get(index).getTitle());
            cardGrid(createGrid());
-//           System.out.println("index+=6 " + index + " : " + movies.size());
 
         }
     }
@@ -92,9 +84,6 @@ public class MovieCardFactoryController implements Initializable {
         }
         MovieArraySearch mv = new MovieArraySearch(search);
         movies = mv.getMovies();
-//        for(int i = 0; i<6;i++) {
-//            System.out.println(i + " " + movies.get(i).getTitle());
-//        }
     }
 
     public void getMovieByYear(int year){
@@ -103,7 +92,6 @@ public class MovieCardFactoryController implements Initializable {
         }
         MovieArray mv = new MovieArray(year);
         movies = mv.getMovies();
-//        System.out.println("Elements in movies: " + movies.size());
     }
 
     public void addComboBox(){
@@ -140,17 +128,11 @@ public class MovieCardFactoryController implements Initializable {
             @Override public void changed(ObservableValue ov, String t, String t1) {
                 yearGlobal = t1;
                 movies.clear();
-                System.out.println(yearGlobal);
                 getMovieByYear(Integer.parseInt(yearGlobal));
 
-//            //     Test for MovieArray
-//        for(int i = 0; i<movies.size();i++) {
-//            System.out.println("Index: " + i + " Title:" + movies.get(i).getTitle());
-//        }
                 //clear old
                 index = 0;
                 cardGrid(createGrid());
-                System.out.println("index+=6 " + index + " : " + movies.size());
             }
         });
 
@@ -161,38 +143,29 @@ public class MovieCardFactoryController implements Initializable {
         for (int j=0;j<2;j++) {             // rows
             for (int i=0;i<3;i++) {         // columns
                 if(movies != null && index < movies.size()){
-//                        System.out.println(movies.get(index));
-//                    System.out.println("In cardGrid Loop");
+
                     if(winnersPane != null){
                         while(movies.get(index).getAwards().isEmpty() && index < movies.size()) {
-                            System.out.println(movies.get(index).getAwards()==null);
                             index++;
                         }
                         if(!(movies.get(index).getAwards()==null) && index < movies.size())
-//                            System.out.println(movies.get(index).getTitle() + "card creation");
                             createCard(j,i,movies.get(index).getTitle(), movies.get(index).getPoster(),movies.get(index).getPlot(),movies.get(index).getYear(), movies.get(index).getAwards(), gridPane);
                             index++;
                     } else if(nominatePane != null ){
-//                        System.out.println(movies.get(index).getTitle() + "movies.get(index) != null");
                         createCard(j,i,movies.get(index).getTitle(), movies.get(index).getPoster(),movies.get(index).getPlot(),movies.get(index).getYear(), movies.get(index).getAwards(), gridPane);
                         index++;
                     } else if(votePane != null){
                         while(movies.get(index).getAwards().isEmpty() && index < movies.size()) {
-                            System.out.println(movies.get(index).getAwards()==null);
                             index++;
                         }
                         if(!(movies.get(index).getAwards()==null) && index < movies.size())
-//                            System.out.println(movies.get(index).getTitle() + "card creation");
                             createCard(j,i,movies.get(index).getTitle(), movies.get(index).getPoster(),movies.get(index).getPlot(),movies.get(index).getYear(), movies.get(index).getAwards(), gridPane);
                         index++;
                     } else if(searchPane != null){
-//                        System.out.println(movies.get(index).getTitle() + "movies.get(index) != null");
                         createCard(j,i,movies.get(index).getTitle(), movies.get(index).getPoster(),movies.get(index).getPlot(),movies.get(index).getYear(), movies.get(index).getAwards(), gridPane);
                         index++;
                     }
-//                    System.out.println("CardGrid Current index: " + index);
                 }
-//                System.out.println(index + " " + movies.get(index).getTitle() + " " + movies.get(index).getPoster() + " " + movies.get(index).getPlot());
 
             }
 
@@ -203,7 +176,6 @@ public class MovieCardFactoryController implements Initializable {
 
         public GridPane createGrid(){
 
-//            System.out.println("Grid Creation top index: " + index);
             GridPane gridPane = new GridPane();
             ColumnConstraints col1 = new ColumnConstraints();
             col1.setPercentWidth(33.3);
@@ -217,30 +189,20 @@ public class MovieCardFactoryController implements Initializable {
             gridPane.setVgap(35);
 
             if(winnersPane != null) {
-//            winnersPane.setCenter(null);
                 winnersPane.setCenter(gridPane);
             } else if(nominatePane != null) {
-//            nominatePane.setCenter(null);
                 nominatePane.setCenter(gridPane);
             } else if(votePane != null) {
-//            votePane.setCenter(null);
                 votePane.setCenter(gridPane);
             } else if(searchPane != null) {
-//            searchPane.setCenter(null);
                 searchPane.setCenter(gridPane);
             }
 
-//            System.out.println("Grid Creation bottom index: " + index);
-//            System.out.println("Movies: " + movies.get(index));
             return gridPane;
         }
 
         public void createCard(int row, int column, String titleIn, String posterIn, String plotIn, String yearIn, List awards, GridPane gridPane) {
-//            System.out.println(awards);
-            System.out.println("In create card");
 
-        // Variables
-//            System.out.println("Card Creation top index: " + index);
         // Card Creation
         HBox card = new HBox();
         card.setId("mainCard");
@@ -296,7 +258,6 @@ public class MovieCardFactoryController implements Initializable {
         details.getChildren().add(title);
         details.getChildren().add(category);
         details.getChildren().add(detailsPane);
-//            System.out.println("yearIn:" + yearIn + " yearIn.contains(Integer.toString(2019)): " + yearIn.contains(Integer.toString(2019)));
         if(nominatePane != null){
             Button nominateButton = new Button("Nominate");
             nominateButton.setMaxWidth(Double.MAX_VALUE);
@@ -322,7 +283,6 @@ public class MovieCardFactoryController implements Initializable {
         card.getChildren().add(iv);
         card.getChildren().add(details);
         card.setAlignment(Pos.CENTER);
-//        System.out.println("Card Creation bottom index: " + index);
 
 
 
@@ -331,26 +291,18 @@ public class MovieCardFactoryController implements Initializable {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 // find movie object. Send to user
-                System.out.println("In event Handler");
                 File noImg = new File("/src/openoscars/resources/imgs/noimage.png");
                 String absolute = System.getProperty("user.dir") + noImg ;
                 poster[0] = new Image("file:" + absolute);
-                System.out.println("index" + index);
                 for(int i = index; i > 0; i--){
-                    System.out.println("In loop");
                     if (movies.get(index-i).getPoster().equals( iv.getImage().getUrl())){
-                        System.out.println("Setting current movies: " + movies.get(index-i).getTitle());
                         User.setCurrentMovie(movies.get(index-i));
                     } else if (movies.get(index-i).getPoster().equals(poster[0].getUrl())){
-                        System.out.println("Setting current movies: " + movies.get(index-i).getTitle());
                         User.setCurrentMovie(movies.get(index-i));
                     } else {
                         System.out.println("Not found");
                     }
                 }
-//                System.out.println("After loop");
-//                System.out.println("");
-
 
                 // display the detail page
                 Pane view = null;
@@ -380,66 +332,45 @@ public class MovieCardFactoryController implements Initializable {
                         searchPane.setLeft(null);
                         searchPane.setRight(null);
                     }
-
-
-
             }
         });
         }
 
-
-
     @FXML
     public void nextPage(MouseEvent mouseEvent) {
         if(index<movies.size()-5){
-//            index+=1;
-            System.out.println("index+=6 " + index + " : " + movies.size());
-
             GridPane gridPane = createGrid();
             if(winnersPane != null) {
-//            winnersPane.setCenter(null);
                 winnersPane.setCenter(gridPane);
             } else if(nominatePane != null) {
-//            nominatePane.setCenter(null);
                 nominatePane.setCenter(gridPane);
             } else if(votePane != null) {
-//            votePane.setCenter(null);
                 votePane.setCenter(gridPane);
             } else if(searchPane != null) {
-//            searchPane.setCenter(null);
                 searchPane.setCenter(gridPane);
             }
-
             cardGrid(gridPane);
-            System.out.println("Next page bottom index: " + index );
         }
 
     }
 
     @FXML
     public void prevPage(MouseEvent mouseEvent) {
-        System.out.println("in prev button");
         if(index>=12){
             index-=12;
-            System.out.println("index-=12 " + index + " : " + movies.size());
 
             GridPane gridPane = createGrid();
             if(winnersPane != null) {
-//            winnersPane.setCenter(null);
                 winnersPane.setCenter(gridPane);
             } else if(nominatePane != null) {
-//            nominatePane.setCenter(null);
                 nominatePane.setCenter(gridPane);
             } else if(votePane != null) {
-//            votePane.setCenter(null);
                 votePane.setCenter(gridPane);
             } else if(searchPane != null) {
-//            searchPane.setCenter(null);
                 searchPane.setCenter(gridPane);
             }
 
             cardGrid(gridPane);
-            System.out.println("Next page bottom index: " + index );
         }
 
     }
