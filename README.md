@@ -68,7 +68,7 @@ For more information visit the website [Here](https://j-montanez.github.io/CSC13
     - c. Incorporate Contextual Inquiry/Elicitation techniques to create visual persona(s) and develop additional personas.
         - See .pdf download for Minimum Project Deliverables 2a
     - d. Create mockups for a proposed GUI (even if not implemented).
-        - We have used Figma to create both wireframe here and high-fidelity prototype here.
+        - We have used Figma to create both wireframe [here](https://www.figma.com/file/aijPewFpVloOSW1jd7wF70/Wireframe?node-id=0%3A1) and high-fidelity prototype [here](https://www.figma.com/file/DRqOGx2Js0TGqy51L3y6Ov/High-Fidelity-Prototype)
     - e. Incorporate pair programming during one Sprint.
         - As evidenced by a 1 minute clip of a recorded in-person or Use Together session with link included in final deliverables.
         - We have done this [here](https://www.youtube.com/watch?v=OdL_c7lw_Zc).
