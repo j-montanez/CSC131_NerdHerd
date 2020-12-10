@@ -23,6 +23,8 @@
             <HBox alignment="CENTER">
                <Label fx:id="userEmail" wrapText="true"/>
             </HBox>
+            <Label fx:id="nominatedTextAccount"/>
+            <Label fx:id="votedTextAccount"/>
             <VBox spacing="25">
                <children>
                   <Button alignment="CENTER" maxWidth="Infinity" mnemonicParsing="false" text="Sign Out" onAction="#logoutButton" fx:id="signOutButton"/>

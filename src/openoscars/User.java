@@ -5,6 +5,8 @@ public class User {
     private static String theme;
     private static String search;
     private static MovieNS currentMovie;
+    private static String nominatedMovie;
+    private static String votedMovie;
 
     public static String getTheme() {
         return theme;
@@ -28,6 +30,22 @@ public class User {
 
     public static void setCurrentMovie(MovieNS currentMovie) {
         User.currentMovie = currentMovie;
+    }
+
+    public static String getNominatedMovie() {
+        return nominatedMovie;
+    }
+
+    public static void setNominatedMovie(String nominatedMovie) {
+        User.nominatedMovie = nominatedMovie;
+    }
+
+    public static String getVotedMovie() {
+        return votedMovie;
+    }
+
+    public static void setVotedMovie(String votedMovie) {
+        User.votedMovie = votedMovie;
     }
 
     public String getEmail() {

@@ -1,5 +1,7 @@
 package openoscars;
 
+import java.util.*;
+
 public class MovieNS {
 	private String Title;
 	 private String Year;
@@ -15,13 +17,19 @@ public class MovieNS {
 	 private String Metascore;
 	 private String imdbRating;
 	 private String imdbVotes;
+	 private List<String> Awards = new ArrayList<String>();
 	//THIS WHOLE THING WAS MADE TO KEEP MY SANITY
-	//Any time you make a MovieObj immediately make an MovieNs and pass the MovieObj into it
+	//Any time you make a MovieObj immediatley make an MovieNs and pass the MovieObj into it
 	 //Then just make references to the MovieNS object instead as it is not static and is therefore instanced
 	public MovieNS(MovieObj obj) {
 		copyVar(obj.getTitle(), obj.getYear(), obj.getRated(), obj.getReleased(), 
 				obj.getRuntime(),obj.getGenre(),obj.getDirector(),obj.getWriter(),obj.getActors(),
 				obj.getPlot(),obj.getPoster(),obj.getMetascore(),obj.getimdbRating(),obj.getimdbVotes());
+		List<String> struggle = new ArrayList<String>(obj.getAwards());
+		Awards = struggle;
+		obj.clearAwards();
+		
+
 	}
 	
 	public void copyVar(String Title, String Year, String Rated, String Released, 
@@ -42,6 +50,7 @@ public class MovieNS {
 		this.Metascore = Metascore;
 		this.imdbRating = imdbRating;
 		this.imdbVotes = imdbVotes;
+
 
 	}
 
@@ -155,5 +164,12 @@ public class MovieNS {
 
 	public void setimdbVotes(String imdbVotes) {
 		this.imdbVotes = imdbVotes;
+	}
+	public List<String> getAwards() {
+		return Awards;
+	}
+
+	public void setAwards(List<String> Awards) {
+		this.Awards = Awards;
 	}
 }

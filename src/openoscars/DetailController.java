@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class DetailController implements Initializable {
@@ -55,7 +56,7 @@ public class DetailController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Variables
 
-        System.out.println(User.getCurrentMovie().getTitle());
+//        System.out.println(User.getCurrentMovie().getTitle());
         String poster = User.getCurrentMovie().getPoster();
         String plot = User.getCurrentMovie().getPlot();
         String title = User.getCurrentMovie().getTitle();
@@ -65,7 +66,7 @@ public class DetailController implements Initializable {
         String imdbRating = User.getCurrentMovie().getimdbRating();
         String imdbVotes = User.getCurrentMovie().getimdbVotes();
         String metacritic = User.getCurrentMovie().getMetascore();
-        String awards = null;
+        List<String> awards = User.getCurrentMovie().getAwards();
         String oscarWins = null;
         String director = User.getCurrentMovie().getDirector();
         String actors = User.getCurrentMovie().getActors();

@@ -93,6 +93,17 @@
     -fx-text-size: 14pt;
     -fx-text-fill: #EAE8E4;
 }
+#nominateButtonCard{
+    -fx-background-radius:30px;
+    -fx-text-size: 14pt;
+    -fx-text-fill: #EAE8E4;
+}
+#votingButtonCard{
+    -fx-background-radius:30px;
+    -fx-text-size: 14pt;
+    -fx-text-fill: #EAE8E4;
+}
+
 
 /*      TRANSPARANT         */
 #homeButton{
@@ -289,6 +300,11 @@
     -fx-background-color:transparent;
 }
 
+#detailsVBox{
+    -fx-padding: 0 10 10 0; 
+    /* padding: top right bottom left */
+
+}
 
 
 

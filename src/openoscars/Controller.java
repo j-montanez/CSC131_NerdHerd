@@ -78,6 +78,8 @@ public class Controller implements Initializable {
     public Label Phuc;
     public Button website;
     public VBox vboxAccount;
+    public Label votedTextAccount;
+    public Label nominatedTextAccount;
 
     @FXML
     private BorderPane loginPane;
@@ -105,20 +107,6 @@ public class Controller implements Initializable {
     @FXML
     private PasswordField loginPassword;
 
-    // More deprecated settings stuff.
-//    @FXML
-//    public void refreshSettingsPane () throws IOException {
-//        Pane view = null;
-//        try {
-//            view = FXMLLoader.load(getClass().getResource("resources/settings.fxml"));
-//            view.getStylesheets().add(getClass().getResource(User.getTheme()).toExternalForm());
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        settingsPane.setCenter(view);
-//    }
-
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -126,6 +114,14 @@ public class Controller implements Initializable {
             User user = new User();
             String email = user.getEmail();
             userEmail.setText(email);
+            System.out.println(User.getNominatedMovie() + " " + User.getVotedMovie());
+        }
+
+        if(loginPane != null && votedTextAccount != null){
+            votedTextAccount.setText("You have voted for: " + User.getVotedMovie());
+        }
+        if(loginPane != null && nominatedTextAccount != null){
+            nominatedTextAccount.setText("You have nominated: " + User.getNominatedMovie());
         }
         // Settings was abandoned due to lack of time.
 //        if(settingsPane != null){
@@ -162,6 +158,7 @@ public class Controller implements Initializable {
     // It doesn't matter for the nav bar because it's still part of home.
     @FXML
     private void navigateHome(ActionEvent event){
+        MovieCardFactoryController.index = 0;
         Stage stage = (Stage) homePane.getScene().getWindow();
         Parent root = null;
         try {
@@ -174,10 +171,12 @@ public class Controller implements Initializable {
         stage.setScene(scene);
         stage.show();
 
+
     }
 
     @FXML
     private void navigateWinners(ActionEvent event){
+        MovieCardFactoryController.index = 0;
         Pane view = null;
         try {
             view = FXMLLoader.load(getClass().getResource("resources/winners.fxml"));
@@ -202,6 +201,7 @@ public class Controller implements Initializable {
 
     @FXML
     private void navigateNominate(ActionEvent event){
+        MovieCardFactoryController.index = 0;
         Pane view = null;
         try {
             view = FXMLLoader.load(getClass().getResource("resources/nominate.fxml"));
@@ -214,7 +214,8 @@ public class Controller implements Initializable {
 
     @FXML
     private void navigateSearch(ActionEvent event){
-        User.setSearch(searchBox.getText());
+        MovieCardFactoryController.index = 0;
+        User.setSearch(searchBox.getText().replace(" ","%20"));
         Pane view = null;
         try {
             view = FXMLLoader.load(getClass().getResource("resources/search.fxml"));
@@ -227,6 +228,7 @@ public class Controller implements Initializable {
 
     @FXML
     private void navigateVote(ActionEvent event){
+        MovieCardFactoryController.index = 0;
         Pane view = null;
         try {
             view = FXMLLoader.load(getClass().getResource("resources/vote.fxml"));
@@ -240,6 +242,7 @@ public class Controller implements Initializable {
 //  This goes to About now, and not settings. Settings was abandoned.
     @FXML
     private void navigateSettings(ActionEvent event){
+        MovieCardFactoryController.index = 0;
         Pane view = null;
         try {
             view = FXMLLoader.load(getClass().getResource("resources/about.fxml"));
@@ -407,6 +410,9 @@ public class Controller implements Initializable {
 
         // Close logout window
         Stage stage = (Stage) backButton.getScene().getWindow();
+        User.setNominatedMovie(null);
+        User.setVotedMovie(null);
+
         stage.close();
 
 

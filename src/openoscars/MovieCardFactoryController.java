@@ -60,31 +60,36 @@ public class MovieCardFactoryController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if(!(winnersPane == null)){
             addComboBox();
+//            System.out.println("After combo");
             getMovieByYear(Integer.parseInt(yearGlobal));
+//            System.out.println("get movie by year");
             cardGrid(createGrid());
-            System.out.println("index+=6 " + index + " : " + movies.size());
+//            System.out.println("index+=6 " + index + " : " + movies.size());
         }
         if(!(nominatePane == null)){
             getMovieByYear(2019);
             cardGrid(createGrid());
-            System.out.println("index+=6 " + index + " : " + movies.size());
+//            System.out.println("index+=6 " + index + " : " + movies.size());
         }
         if(!(votePane == null)){
             getMovieByYear(2019);
             cardGrid(createGrid());
-            System.out.println("index+=6 " + index + " : " + movies.size());
+//            System.out.println("index+=6 " + index + " : " + movies.size());
         }
         if(!(searchPane == null)){
-           System.out.println("User.getSearch() " + User.getSearch());
+//           System.out.println("User.getSearch() " + User.getSearch());
            getMovieBySearch(User.getSearch());
            System.out.println(movies.get(index).getTitle());
            cardGrid(createGrid());
-           System.out.println("index+=6 " + index + " : " + movies.size());
+//           System.out.println("index+=6 " + index + " : " + movies.size());
 
         }
     }
 
     public void getMovieBySearch(String search){
+        if(movies!=null){
+            movies.clear();
+        }
         MovieArraySearch mv = new MovieArraySearch(search);
         movies = mv.getMovies();
 //        for(int i = 0; i<6;i++) {
@@ -93,15 +98,17 @@ public class MovieCardFactoryController implements Initializable {
     }
 
     public void getMovieByYear(int year){
+        if(movies!=null){
+            movies.clear();
+        }
         MovieArray mv = new MovieArray(year);
         movies = mv.getMovies();
-        System.out.println("Elements in movies: " + movies.size());
-
+//        System.out.println("Elements in movies: " + movies.size());
     }
 
     public void addComboBox(){
         final ComboBox<String> yearComboBox = new ComboBox<>();
-        for(int i = 2020; i>=1927; i--){
+        for(int i = 2018; i>=1927; i--){
             yearComboBox.getItems().add(Integer.toString(i));
         }
         yearComboBox.setEditable(false);
@@ -153,11 +160,36 @@ public class MovieCardFactoryController implements Initializable {
     public void cardGrid(GridPane gridPane){
         for (int j=0;j<2;j++) {             // rows
             for (int i=0;i<3;i++) {         // columns
-                if(movies.get(index) != null){
+                if(movies != null && index < movies.size()){
 //                        System.out.println(movies.get(index));
-                        System.out.println(movies.get(index).getTitle() + "movies.get(index) != null");
-                    createCard(j,i,movies.get(index).getTitle(),"category",movies.get(index).getPoster(),movies.get(index).getPlot(), gridPane);
-                    index++;
+//                    System.out.println("In cardGrid Loop");
+                    if(winnersPane != null){
+                        while(movies.get(index).getAwards().isEmpty() && index < movies.size()) {
+                            System.out.println(movies.get(index).getAwards()==null);
+                            index++;
+                        }
+                        if(!(movies.get(index).getAwards()==null) && index < movies.size())
+//                            System.out.println(movies.get(index).getTitle() + "card creation");
+                            createCard(j,i,movies.get(index).getTitle(), movies.get(index).getPoster(),movies.get(index).getPlot(),movies.get(index).getYear(), movies.get(index).getAwards(), gridPane);
+                            index++;
+                    } else if(nominatePane != null ){
+//                        System.out.println(movies.get(index).getTitle() + "movies.get(index) != null");
+                        createCard(j,i,movies.get(index).getTitle(), movies.get(index).getPoster(),movies.get(index).getPlot(),movies.get(index).getYear(), movies.get(index).getAwards(), gridPane);
+                        index++;
+                    } else if(votePane != null){
+                        while(movies.get(index).getAwards().isEmpty() && index < movies.size()) {
+                            System.out.println(movies.get(index).getAwards()==null);
+                            index++;
+                        }
+                        if(!(movies.get(index).getAwards()==null) && index < movies.size())
+//                            System.out.println(movies.get(index).getTitle() + "card creation");
+                            createCard(j,i,movies.get(index).getTitle(), movies.get(index).getPoster(),movies.get(index).getPlot(),movies.get(index).getYear(), movies.get(index).getAwards(), gridPane);
+                        index++;
+                    } else if(searchPane != null){
+//                        System.out.println(movies.get(index).getTitle() + "movies.get(index) != null");
+                        createCard(j,i,movies.get(index).getTitle(), movies.get(index).getPoster(),movies.get(index).getPlot(),movies.get(index).getYear(), movies.get(index).getAwards(), gridPane);
+                        index++;
+                    }
 //                    System.out.println("CardGrid Current index: " + index);
                 }
 //                System.out.println(index + " " + movies.get(index).getTitle() + " " + movies.get(index).getPoster() + " " + movies.get(index).getPlot());
@@ -198,12 +230,14 @@ public class MovieCardFactoryController implements Initializable {
                 searchPane.setCenter(gridPane);
             }
 
-            System.out.println("Grid Creation bottom index: " + index);
+//            System.out.println("Grid Creation bottom index: " + index);
 //            System.out.println("Movies: " + movies.get(index));
             return gridPane;
         }
 
-        public void createCard(int row, int column, String titleIn, String categoryIn, String posterIn, String plotIn, GridPane gridPane) {
+        public void createCard(int row, int column, String titleIn, String posterIn, String plotIn, String yearIn, List awards, GridPane gridPane) {
+//            System.out.println(awards);
+            System.out.println("In create card");
 
         // Variables
 //            System.out.println("Card Creation top index: " + index);
@@ -241,9 +275,15 @@ public class MovieCardFactoryController implements Initializable {
         // Details side of card
         VBox details = new VBox();
         details.setAlignment(Pos.CENTER);
+        details.setId("detailsVBox");
         Label title = new Label(titleIn);
         title.setId("titleCard");
-        Label category = new Label(categoryIn);
+        String awardsString = "";
+        if(!awards.isEmpty() && winnersPane != null){
+            for(int i = 0 ; i<awards.size() ; i++)
+            awardsString += awards.get(i) + "\n";
+        }
+        Label category = new Label(awardsString);
         category.setId("categoryCard");
         ScrollPane detailsPane = new ScrollPane();
         detailsPane.setId("scrollPaneCard");
@@ -252,14 +292,31 @@ public class MovieCardFactoryController implements Initializable {
         description.setWrapText(true);
         description.setMaxWidth(230);
         detailsPane.setContent(description);
-//        Button button = new Button("Click");
-//        button.setMaxWidth(Double.MAX_VALUE);
-
         // add to details
         details.getChildren().add(title);
         details.getChildren().add(category);
         details.getChildren().add(detailsPane);
-//        details.getChildren().add(button);
+//            System.out.println("yearIn:" + yearIn + " yearIn.contains(Integer.toString(2019)): " + yearIn.contains(Integer.toString(2019)));
+        if(nominatePane != null){
+            Button nominateButton = new Button("Nominate");
+            nominateButton.setMaxWidth(Double.MAX_VALUE);
+            nominateButton.setId("nominateButtonCard");
+            nominateButton.setOnAction(event -> {
+                nominateButton.setStyle("-fx-background-color:#B09951;-fx-text-fill: #220404;");
+                User.setNominatedMovie(titleIn);
+                    });
+            details.getChildren().add(nominateButton);
+        } else if(votePane != null){
+            Button voteButton = new Button("Vote");
+            voteButton.setMaxWidth(Double.MAX_VALUE);
+            voteButton.setId("votingButtonCard");
+            voteButton.setOnAction(event -> {
+                voteButton.setStyle("-fx-background-color:#B09951;-fx-text-fill: #220404;");
+                User.setVotedMovie(titleIn);
+            });
+            details.getChildren().add(voteButton);
+        }
+
 
         // add to card
         card.getChildren().add(iv);
@@ -268,25 +325,31 @@ public class MovieCardFactoryController implements Initializable {
 //        System.out.println("Card Creation bottom index: " + index);
 
 
+
 //      Click on the Card's poster
         iv.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 // find movie object. Send to user
+                System.out.println("In event Handler");
                 File noImg = new File("/src/openoscars/resources/imgs/noimage.png");
                 String absolute = System.getProperty("user.dir") + noImg ;
                 poster[0] = new Image("file:" + absolute);
-                for(int i = 0; i < 7; i++){
+                System.out.println("index" + index);
+                for(int i = index; i > 0; i--){
+                    System.out.println("In loop");
                     if (movies.get(index-i).getPoster().equals( iv.getImage().getUrl())){
+                        System.out.println("Setting current movies: " + movies.get(index-i).getTitle());
                         User.setCurrentMovie(movies.get(index-i));
-                        System.out.println(movies.get(index-i).getTitle());
                     } else if (movies.get(index-i).getPoster().equals(poster[0].getUrl())){
+                        System.out.println("Setting current movies: " + movies.get(index-i).getTitle());
                         User.setCurrentMovie(movies.get(index-i));
-                        System.out.println(movies.get(index-i).getTitle());
                     } else {
                         System.out.println("Not found");
                     }
                 }
+//                System.out.println("After loop");
+//                System.out.println("");
 
 
                 // display the detail page
@@ -323,6 +386,8 @@ public class MovieCardFactoryController implements Initializable {
             }
         });
         }
+
+
 
     @FXML
     public void nextPage(MouseEvent mouseEvent) {

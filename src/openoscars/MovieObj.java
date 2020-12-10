@@ -219,7 +219,10 @@ public class MovieObj{
 		return Awards;
 	}
 
-	public void setCategory(List<String> Awards) {
+	public void setAwards(List<String> Awards) {
 		this.Awards = Awards;
+	}
+	public void clearAwards() {
+		Awards.clear();
 	}
 }

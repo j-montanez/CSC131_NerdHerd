@@ -28,33 +28,35 @@ public class MovieArraySearch {
 				.join();
 	}
 	//takes the JSON file and puts the awards into String list
-	public static String last = null;
-	public static String twoAgo = null;
+	public static String last = "";
+	public static String twoAgo = "";
 	public static void parse(String responseBody) {
 		JSONArray jarray = new JSONArray(responseBody);
 		
 			for(int i = 0; i<jarray.length();i++) {
-				 JSONObject movie = jarray.getJSONObject(i);
-				 System.out.println("movie: " + movie);
-				 String newTitle = movie.getString("title");
-				 if(i==0){
+				JSONObject movie = jarray.getJSONObject(i);
+				System.out.println("movie: " + movie);
+				String newTitle = movie.getString("title");
+				if(i==0){
 					 String Title = movie.getString("title");
 					 yup.add(Title);
 					 MovieObj mv = new MovieObj(Title);
 					 MovieNS ugh = new MovieNS(mv);
 					 Movies.add(ugh);
-				 } else	if(!last.equals(newTitle) && !twoAgo.equals(newTitle)){
+				} else	if(!last.equals(newTitle) && !twoAgo.equals(newTitle)){
 					 String Title = movie.getString("title");
 					 yup.add(Title);
 					 MovieObj mv = new MovieObj(Title);
 					 MovieNS ugh = new MovieNS(mv);
 					 Movies.add(ugh);
-				 }
-					if(i%2 == 0){
-						last = movie.getString("title");
-					}else{
-						twoAgo = movie.getString("title");
-					}
+				}
+				if(i%2 == 0){
+					last = movie.getString("title");
+					System.out.println("last: " + last);
+				}else{
+					twoAgo = movie.getString("title");
+					System.out.println("twoAgo: " + twoAgo);
+				}
 
 			}	 			
 	}
